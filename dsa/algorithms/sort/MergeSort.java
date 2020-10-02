@@ -8,20 +8,20 @@ package dsa.algorithms.sort;
  * if the specified array reference is null, except where noted.</p>
  *
  * <p><b>Mergesort</b> is used when we want a guaranteed running time of <b>O(n logn)</b>
- * It is also good to use when memory <b>space</b> is not limited</p>
+ * It is also good to use when memory <b>space</b> is not limited.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
  * 	<tr>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Best)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Average)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Worst)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Space Complexity</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Best)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Average)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Worst)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Space Complexity</th>
  * 	</tr>
  * 	<tr>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">Ω(n logn)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">Θ(n logn)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n logn)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n)</td>
  * 	</tr>
  * </table>
  *

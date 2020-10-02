@@ -2,15 +2,16 @@ package dsa.algorithms.sort;
 
 
 /**
- * This class contains sort methods which are implemented using Insertion Sort.
+ * This class contains sort methods which are implemented using Bubble Sort.
  *
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.</p>
  *
- * <p><b>Insertion sort</b> is used when number of elements is small.
+ * <p><b>Bubble sort</b> is used when number of elements is small.
  * It can also be useful when input array is almost <b>sorted</b>, 
  * only few elements are misplaced in complete big array.
- * It is also good to use when memory <b>space</b> is limited.</p>
+ * It is also good to use when memory <b>space</b> is limited.
+ * It can be good if swap of arbitrary items are expensive.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
  * 	<tr>
@@ -31,10 +32,10 @@ package dsa.algorithms.sort;
  * @version 1.0
  * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  */
-public class InsertionSort
+public class BubbleSort
 {	
 	// Suppresses default constructor, ensuring non-instantiability.
-    private InsertionSort() {}
+    private BubbleSort() {}
 	
 	
 	// char array
@@ -60,36 +61,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				char key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				char temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				char key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				char temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -129,36 +130,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					char key;
-					int	j;
+					char temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					char key;
-					int	j;
+					char temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -179,8 +180,8 @@ public class InsertionSort
 			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
 		}
 	}
-
-
+	
+	
 	// byte array
 	/**
 	 * Sorts the specified array into ascending/descending order 
@@ -204,36 +205,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				byte key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				byte temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				byte key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				byte temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -273,36 +274,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					byte key;
-					int	j;
+					byte temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					byte key;
-					int	j;
+					byte temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -348,36 +349,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				short key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				short temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				short key;
-				int	j;
-				for(int i = 1; i < a.length; i++)
+				short temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -417,36 +418,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					short key;
-					int	j;
+					short temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					short key;
-					int	j;
+					short temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -467,7 +468,7 @@ public class InsertionSort
 			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
 		}
 	}
-	
+
 
 	// int array
 	/**
@@ -492,34 +493,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				int key, j;
-				for(int i = 1; i < a.length; i++)
+				int temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				int key, j;
-				for(int i = 1; i < a.length; i++)
+				int temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -559,34 +562,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					int key, j;
+					int temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					int key, j;
+					int temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -632,36 +637,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				long key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				long temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				long key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				long temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -701,36 +706,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					long key;
-					int j;
+					long temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					long key;
-					int j;
+					long temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -776,36 +781,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				float key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				float temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				float key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				float temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -845,36 +850,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					float key;
-					int j;
+					float temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					float key;
-					int j;
+					float temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -920,36 +925,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				double key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				double temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] > key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] > a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				double key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				double temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && a[j] < key)
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(a[j] < a[j+1])
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -989,36 +994,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					double key;
-					int j;
+					double temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] > key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] > a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					double key;
-					int j;
+					double temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && a[j] < key)
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(a[j] < a[j+1])
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
@@ -1069,36 +1074,36 @@ public class InsertionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				Object key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				Object temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && (((Comparable) a[j]).compareTo(key) > 0))
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(((Comparable) a[j]).compareTo(a[j+1]) > 0)
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				Object key;
-				int j;
-				for(int i = 1; i < a.length; i++)
+				Object temp;
+				for(int i = 0; i < a.length; i++)
 				{
-					key = a[i];
-					j = i - 1;
-					while(j > -1 && (((Comparable) a[j]).compareTo(key) < 0))
+					for(int j = 0; j < (a.length-i-1);j++)
 					{
-						a[j + 1] = a[j];
-						j--;
+						if(((Comparable) a[j]).compareTo(a[j+1]) < 0)
+						{
+							temp = a[j];
+							a[j] = a[j+1];
+							a[j+1] = temp;
+						}
 					}
-					a[j + 1] = key;
 				}
 			}
 			
@@ -1144,36 +1149,36 @@ public class InsertionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					Object key;
-					int j;
+					Object temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && (((Comparable) a[j]).compareTo(key) > 0))
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(((Comparable) a[j]).compareTo(a[j+1]) > 0)
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					Object key;
-					int j;
+					Object temp;
 					for(int i = fromIndex; i < toIndex; i++)
 					{
-						key = a[i];
-						j = i - 1;
-						while(j >= fromIndex && (((Comparable) a[j]).compareTo(key) < 0))
+						for(int j = fromIndex; j < (toIndex-i-1);j++)
 						{
-							a[j + 1] = a[j];
-							j--;
+							if(((Comparable) a[j]).compareTo(a[j+1]) < 0)
+							{
+								temp = a[j];
+								a[j] = a[j+1];
+								a[j+1] = temp;
+							}
 						}
-						a[j + 1] = key;
 					}
 				}
 				

@@ -13,16 +13,16 @@ package dsa.algorithms.sort;
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
  * 	<tr>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Best)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Average)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Time Complexity(Worst)</th>
- * 		<th style = "border: 1px solid black; padding: 15px;">Space Complexity</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Best)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Average)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Worst)</th>
+ * 	 <th style = "border: 1px solid black; padding: 15px;">Space Complexity</th>
  * 	</tr>
  * 	<tr>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">Ω(n^2)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">Θ(n^2)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n^2)</td>
- * 		<td style = "border: 1px solid black; text-align: center; padding: 15px;">O(1)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n<sup STYLE="font-size:8.0pt">2</sup>)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n<sup STYLE="font-size:8.0pt">2</sup>)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n<sup STYLE="font-size:8.0pt">2</sup>)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(1)</td>
  * 	</tr>
  * </table>
  *
