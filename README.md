@@ -6,6 +6,7 @@
 
 ###### package structure
 
+```
 dsa
 ├───algorithms
 │   ├───problems
@@ -22,6 +23,6 @@ dsa
     └───heap
         ├───Heap.java
         └───InvalidChoiceException.java
-
+```
 
 It is still under development and takes time.
