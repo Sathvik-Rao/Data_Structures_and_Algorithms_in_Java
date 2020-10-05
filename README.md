@@ -1,9 +1,5 @@
 # Data Structures and Algorithms in Java
 
-### Author - Sathvik
-
-### Start Date - 30/09/2020
-
 ###### package structure
 
 ```
@@ -26,3 +22,7 @@ dsa
 ```
 
 It is still under development and takes time.
+
+### Author - Sathvik
+
+### Start Date - 30/09/2020
