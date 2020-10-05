@@ -16,26 +16,26 @@ public class InvalidChoiceException extends Exception
 	private char c;
 	
 	/**
-     * Constructs an {@code InvalidChoiceException} and initialize <b>c</b>.
-     *
-     * @param c the invalid character(choice)
-     */
+	 * Constructs an {@code InvalidChoiceException} and initialize <b>c</b>.
+	 *
+	 * @param c the invalid character(choice)
+	 */
 	public InvalidChoiceException(char c)
 	{
 		this.c = c;
 	}
 	
 	/**
-     * Returns a description about exception. The result is the concatenation of:
-     * <ul>
-     * <li> "dsa.algorithms.sort.InvalidChoiceException" (the name of the package) </li>
-     * <li> ": " (a colon and a space) </li>
-     * <li> "Invalid choice \'" + c + "\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending." 
+	 * Returns a description about exception. The result is the concatenation of:
+	 * <ul>
+	 * <li> "dsa.algorithms.sort.InvalidChoiceException" (the name of the package) </li>
+	 * <li> ": " (a colon and a space) </li>
+	 * <li> "Invalid choice \'" + c + "\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending." 
 	 * 		 (where c is the invalid choice) </li>
-     * </ul>
+	 * </ul>
 	 *
-     * @return a string representation of this exception.
-     */
+	 * @return a string representation of this exception.
+	 */
 	@Override
 	public String toString()
 	{
