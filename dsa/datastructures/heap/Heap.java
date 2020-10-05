@@ -65,18 +65,18 @@ public final class Heap<T extends Comparable<T>>
 	// Temporary Array for heap.
 	private Object[] elementDataTemp;
 	
-    // Array length(capacity).
+	// Array length(capacity).
 	private int capacity = 11;
 	
-    // The number of elements in the heap.
+	// The number of elements in the heap.
 	private int end = 0;
 	
 	/**
 	 * Creates a {@code Heap} with the default initial
-     * capacity (11) that orders its elements according to the order specified.
-     *
-     * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
-     * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * capacity (11) that orders its elements according to the order specified.
+	 *
+	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
+	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
 	 */
     public Heap(String str) throws InvalidChoiceException
 	{
@@ -91,11 +91,11 @@ public final class Heap<T extends Comparable<T>>
 	
 	/**
 	 * Creates a {@code PriorityQueue} with the specified initial
-     * capacity that orders its elements according to the order specified.
-     *
+	 * capacity that orders its elements according to the order specified.
+	 *
 	 * @param initialCapacity the initial capacity for the heap
-     * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
-     * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
+	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
 	 */
 	public Heap(int initialCapacity, String str) throws InvalidChoiceException
 	{
@@ -165,7 +165,7 @@ public final class Heap<T extends Comparable<T>>
 	 * Inserts the specified element into the heap.
 	 *
 	 * @param e the element to add
-     * @throws NullPointerException if the specified element is null
+	 * @throws NullPointerException if the specified element is null
 	 */
 	public void add(T e)
 	{
@@ -279,7 +279,7 @@ public final class Heap<T extends Comparable<T>>
 	
 	/**
 	 * Retrieves and removes the root of the heap, 
-     * or returns null if the heap is empty.
+	 * or returns null if the heap is empty.
 	 *
 	 * @return the root of the heap, or null if the heap is empty
 	 */
@@ -496,9 +496,9 @@ public final class Heap<T extends Comparable<T>>
 	}
 	
 	/**
-     * Removes all of the elements from the heap.
-     * The heap will be empty after this call returns.
-     */
+	 * Removes all of the elements from the heap.
+	 * The heap will be empty after this call returns.
+	 */
 	public void clear()
 	{
 		end = 0;
@@ -509,14 +509,14 @@ public final class Heap<T extends Comparable<T>>
 	}
 	
 	/**
-     * Returns {@code true} if this heap contains the specified element.
-     * More formally, returns {@code true} if and only if the heap contains
-     * at least one element {@code e} such that {@code e.equals(o)}.
-     *
-     * @param e object to be checked for containment in the heap
-     * @return {@code true} if this heap contains the specified element, else {@code false}
+	 * Returns {@code true} if this heap contains the specified element.
+	 * More formally, returns {@code true} if and only if the heap contains
+	 * at least one element {@code e} such that {@code e.equals(o)}.
+	 *
+	 * @param e object to be checked for containment in the heap
+	 * @return {@code true} if this heap contains the specified element, else {@code false}
 	 * @throws NullPointerException if the specified element is null
-     */
+	 */
 	@SuppressWarnings("unchecked")
 	public boolean contains(T e)
 	{
@@ -545,15 +545,15 @@ public final class Heap<T extends Comparable<T>>
 	}
 	
 	/**
-     * Returns an array containing all of the elements in the queue.
-     * The elements are in level order of heap.
-     *
-     * <p>The returned array will be "safe" in that no references to it are
-     * maintained by the heap.  (In other words, this method must allocate
-     * a new array).  The caller is thus free to modify the returned array.</p>
-     *
-     * @return an array containing all of the elements in the queue.
-     */
+	 * Returns an array containing all of the elements in the queue.
+	 * The elements are in level order of heap.
+	 *
+	 * <p>The returned array will be "safe" in that no references to it are
+	 * maintained by the heap.  (In other words, this method must allocate
+	 * a new array).  The caller is thus free to modify the returned array.</p>
+	 *
+	 * @return an array containing all of the elements in the queue.
+	 */
 	public Object[] toArray()
 	{
 		Object[] o = new Object[end];

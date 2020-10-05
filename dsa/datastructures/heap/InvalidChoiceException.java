@@ -18,26 +18,26 @@ public class InvalidChoiceException extends Exception
 	private String s;
 	
 	/**
-     * Constructs an {@code InvalidChoiceException} and initialize <b>s</b>.
-     *
-     * @param s the invalid string(choice)
-     */
+	 * Constructs an {@code InvalidChoiceException} and initialize <b>s</b>.
+	 *
+	 * @param s the invalid string(choice)
+	 */
 	public InvalidChoiceException(String s)
 	{
 		this.s = s;
 	}
 	
 	/**
-     * Returns a description about exception. The result is the concatenation of:
-     * <ul>
-     * <li> "dsa.datastructures.heap.InvalidChoiceException" (the name of the package) </li>
-     * <li> ": " (a colon and a space) </li>
-     * <li> "Invalid choice \"" + s + "\", excepted \"min\" for min heap and \"max\" for max heap."
+	 * Returns a description about exception. The result is the concatenation of:
+	 * <ul>
+	 * <li> "dsa.datastructures.heap.InvalidChoiceException" (the name of the package) </li>
+	 * <li> ": " (a colon and a space) </li>
+	 * <li> "Invalid choice \"" + s + "\", excepted \"min\" for min heap and \"max\" for max heap."
 	 * 		 (where s is the invalid choice) </li>
-     * </ul>
+	 * </ul>
 	 *
-     * @return a string representation of this exception.
-     */
+	 * @return a string representation of this exception.
+	 */
 	@Override
 	public String toString()
 	{
