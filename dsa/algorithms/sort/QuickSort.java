@@ -134,12 +134,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(char[] a, int start, int end)
+	private static int partitionAscending(char[] a, int start, int end)
 	{
 		char pivot = a[end], temp;
 		int pIndex = start;
@@ -164,12 +164,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(char[] a, int start, int end)
+	private static int partitionDescending(char[] a, int start, int end)
 	{
 		char pivot = a[end], temp;
 		int pIndex = start;
@@ -290,12 +290,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(byte[] a, int start, int end)
+	private static int partitionAscending(byte[] a, int start, int end)
 	{
 		byte pivot = a[end], temp;
 		int pIndex = start;
@@ -320,12 +320,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(byte[] a, int start, int end)
+	private static int partitionDescending(byte[] a, int start, int end)
 	{
 		byte pivot = a[end], temp;
 		int pIndex = start;
@@ -446,12 +446,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(short[] a, int start, int end)
+	private static int partitionAscending(short[] a, int start, int end)
 	{
 		short pivot = a[end], temp;
 		int pIndex = start;
@@ -476,12 +476,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(short[] a, int start, int end)
+	private static int partitionDescending(short[] a, int start, int end)
 	{
 		short pivot = a[end], temp;
 		int pIndex = start;
@@ -602,12 +602,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(int[] a, int start, int end)
+	private static int partitionAscending(int[] a, int start, int end)
 	{
 		int pivot = a[end], temp;
 		int pIndex = start;
@@ -632,12 +632,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(int[] a, int start, int end)
+	private static int partitionDescending(int[] a, int start, int end)
 	{
 		int pivot = a[end], temp;
 		int pIndex = start;
@@ -758,12 +758,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(long[] a, int start, int end)
+	private static int partitionAscending(long[] a, int start, int end)
 	{
 		long pivot = a[end], temp;
 		int pIndex = start;
@@ -788,12 +788,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(long[] a, int start, int end)
+	private static int partitionDescending(long[] a, int start, int end)
 	{
 		long pivot = a[end], temp;
 		int pIndex = start;
@@ -914,12 +914,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(float[] a, int start, int end)
+	private static int partitionAscending(float[] a, int start, int end)
 	{
 		float pivot = a[end], temp;
 		int pIndex = start;
@@ -944,12 +944,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(float[] a, int start, int end)
+	private static int partitionDescending(float[] a, int start, int end)
 	{
 		float pivot = a[end], temp;
 		int pIndex = start;
@@ -1070,12 +1070,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickAscending(double[] a, int start, int end)
+	private static int partitionAscending(double[] a, int start, int end)
 	{
 		double pivot = a[end], temp;
 		int pIndex = start;
@@ -1100,12 +1100,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static int quickDescending(double[] a, int start, int end)
+	private static int partitionDescending(double[] a, int start, int end)
 	{
 		double pivot = a[end], temp;
 		int pIndex = start;
@@ -1228,12 +1228,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickAscending(a, start, end);
+			int pIndex = partitionAscending(a, start, end);
 			quickSortAscending(a, start, pIndex - 1);
 			quickSortAscending(a, pIndex + 1, end);
 		}
 	}
-	private static <T extends Comparable<T>> int quickAscending(T[] a, int start, int end)
+	private static <T extends Comparable<T>> int partitionAscending(T[] a, int start, int end)
 	{
 		T pivot = a[end], temp;
 		int pIndex = start;
@@ -1258,12 +1258,12 @@ public class QuickSort
 	{
 		if(start < end)
 		{
-			int pIndex = quickDescending(a, start, end);
+			int pIndex = partitionDescending(a, start, end);
 			quickSortDescending(a, start, pIndex - 1);
 			quickSortDescending(a, pIndex + 1, end);
 		}
 	}
-	private static <T extends Comparable<T>> int quickDescending(T[] a, int start, int end)
+	private static <T extends Comparable<T>> int partitionDescending(T[] a, int start, int end)
 	{
 		T pivot = a[end], temp;
 		int pIndex = start;
