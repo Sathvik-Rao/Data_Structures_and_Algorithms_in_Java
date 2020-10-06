@@ -1128,13 +1128,14 @@ public class SelectionSort
 	}
 	
 	
-	// Object array
+	// Generic array
 	/**
 	 * Sorts the specified array into ascending/descending order, according to the natural ordering of its elements.
 	 * All elements in the array must implement the Comparable interface. 
 	 * Furthermore, all elements in the array must be mutually comparable (that is, e1.compareTo(e2) 
 	 * must not throw a ClassCastException for any elements e1 and e2 in the array).
 	 *
+	 * @param <T> the type of elements that implements Comparable interface
 	 * @param a the array to be sorted
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
@@ -1143,8 +1144,7 @@ public class SelectionSort
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	@SuppressWarnings({"unchecked", "rawtypes"})
-	public static void sort(Object[] a, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, char c) throws InvalidChoiceException
 	{
 		if(a == null)
 		{
@@ -1156,7 +1156,7 @@ public class SelectionSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				Object temp;
+				T temp;
 				int	minLocation, j;
 				for(int i = 0; i < a.length - 1; i++)
 				{
@@ -1164,7 +1164,7 @@ public class SelectionSort
 					minLocation = i;
 					for(j = i + 1; j < a.length; j++)
 					{
-						if(((Comparable) a[j]).compareTo(a[minLocation]) < 0)
+						if((a[j]).compareTo(a[minLocation]) < 0)
 						{
 							minLocation = j;
 						}
@@ -1177,7 +1177,7 @@ public class SelectionSort
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				Object temp;
+				T temp;
 				int	minLocation, j;
 				for(int i = 0; i < a.length - 1; i++)
 				{
@@ -1185,7 +1185,7 @@ public class SelectionSort
 					minLocation = i;
 					for(j = i + 1; j < a.length; j++)
 					{
-						if(((Comparable) a[j]).compareTo(a[minLocation]) > 0)
+						if((a[j]).compareTo(a[minLocation]) > 0)
 						{
 							minLocation = j;
 						}
@@ -1210,6 +1210,7 @@ public class SelectionSort
 	 * implement the Comparable interface. Furthermore, all elements in this range must be mutually 
 	 * comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the array).
 	 *
+	 * @param <T> the type of elements that implements Comparable interface
 	 * @param a the array to be sorted
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
@@ -1222,8 +1223,7 @@ public class SelectionSort
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	@SuppressWarnings({"unchecked", "rawtypes"})
-	public static void sort(Object[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
 	{
 		if(a == null)
 		{
@@ -1237,7 +1237,7 @@ public class SelectionSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					Object temp;
+					T temp;
 					int	minLocation, j;
 					for(int i = fromIndex; i < toIndex - 1; i++)
 					{
@@ -1245,7 +1245,7 @@ public class SelectionSort
 						minLocation = i;
 						for(j = i + 1; j < toIndex; j++)
 						{
-							if(((Comparable) a[j]).compareTo(a[minLocation]) < 0)
+							if((a[j]).compareTo(a[minLocation]) < 0)
 							{
 								minLocation = j;
 							}
@@ -1258,7 +1258,7 @@ public class SelectionSort
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					Object temp;
+					T temp;
 					int	minLocation, j;
 					for(int i = fromIndex; i < toIndex - 1; i++)
 					{
@@ -1266,7 +1266,7 @@ public class SelectionSort
 						minLocation = i;
 						for(j = i + 1; j < toIndex; j++)
 						{
-							if(((Comparable) a[j]).compareTo(a[minLocation]) > 0)
+							if((a[j]).compareTo(a[minLocation]) > 0)
 							{
 								minLocation = j;
 							}

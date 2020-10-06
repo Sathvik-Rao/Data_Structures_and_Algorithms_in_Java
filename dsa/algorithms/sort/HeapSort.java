@@ -38,6 +38,1043 @@ public class HeapSort
     private HeapSort() {}
 	
 	
+	// char array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(char[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Character> h = new Heap<Character>(a.length, "min");
+				
+					for(Character ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Character> h = new Heap<Character>(a.length, "max");
+				
+					for(Character ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(char[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Character> h = new Heap<Character>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Character> h = new Heap<Character>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// byte array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(byte[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Byte> h = new Heap<Byte>(a.length, "min");
+				
+					for(Byte ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Byte> h = new Heap<Byte>(a.length, "max");
+				
+					for(Byte ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(byte[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Byte> h = new Heap<Byte>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Byte> h = new Heap<Byte>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// short array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(short[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Short> h = new Heap<Short>(a.length, "min");
+				
+					for(Short ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Short> h = new Heap<Short>(a.length, "max");
+				
+					for(Short ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(short[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Short> h = new Heap<Short>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Short> h = new Heap<Short>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// int array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(int[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Integer> h = new Heap<Integer>(a.length, "min");
+				
+					for(Integer ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Integer> h = new Heap<Integer>(a.length, "max");
+				
+					for(Integer ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(int[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Integer> h = new Heap<Integer>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Integer> h = new Heap<Integer>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// long array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(long[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Long> h = new Heap<Long>(a.length, "min");
+				
+					for(Long ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Long> h = new Heap<Long>(a.length, "max");
+				
+					for(Long ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(long[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Long> h = new Heap<Long>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Long> h = new Heap<Long>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// float array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(float[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Float> h = new Heap<Float>(a.length, "min");
+				
+					for(Float ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Float> h = new Heap<Float>(a.length, "max");
+				
+					for(Float ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Float> h = new Heap<Float>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Float> h = new Heap<Float>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// double array
+	/**
+	 * Sorts the specified array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 *
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(double[] a, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(a.length > 1)
+		{
+			// Ascending Order
+			if(c == 'a' || c == 'A')
+			{
+				try 
+				{
+					Heap<Double> h = new Heap<Double>(a.length, "min");
+				
+					for(Double ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Descending Order
+			else if(c == 'd' || c == 'D')
+			{
+				try 
+				{
+					Heap<Double> h = new Heap<Double>(a.length, "max");
+				
+					for(Double ref : a)
+					{
+						h.add(ref);
+					}
+					for(int i = 0; i < a.length; i++)
+					{
+						a[i] = h.poll();
+					}
+				}
+				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+			}
+			
+			// Invalid Character
+			else
+			{
+				throw new InvalidChoiceException(c);
+			}
+		}
+	}
+	
+	/**
+	 * Sorts the specified range of array into ascending/descending order 
+	 * based on the character input.
+	 *
+	 * @param a the array to be sorted
+	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
+	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
+	 * @param fromIndex the index of the first element, inclusive, to be sorted
+	 * @param toIndex the index of the last element, exclusive, to be sorted
+	 *
+	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 */
+	public static void sort(double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	{
+		if(a == null)
+		{
+			throw new NullPointerException();
+		}
+		
+		if(fromIndex > -1 && toIndex <= a.length)
+		{
+			if(fromIndex <= toIndex)
+			{	
+				// Ascending Order
+				if(c == 'a' || c == 'A')
+				{
+					try 
+					{
+						Heap<Double> h = new Heap<Double>(a.length, "min");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Descending Order
+				else if(c == 'd' || c == 'D')
+				{
+					try 
+					{
+						Heap<Double> h = new Heap<Double>(a.length, "max");
+					
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							h.add(a[i]);
+						}
+						for(int i = fromIndex; i < toIndex; i++)
+						{
+							a[i] = h.poll();
+						}
+					}
+					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				}
+				
+				// Invalid Character
+				else
+				{
+					throw new InvalidChoiceException(c);
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("fromIndex(" + fromIndex +
+													") > toIndex(" + toIndex + ")");
+			}
+		}
+		else
+		{
+			throw new ArrayIndexOutOfBoundsException("[" + fromIndex + ", "+toIndex + "]");
+		}
+	}
+	
+	
+	// Generic array
 	/**
 	 * Sorts the specified array into ascending/descending order, according to the natural ordering of its elements.
 	 * All elements in the array must implement the Comparable interface.
@@ -128,8 +1165,7 @@ public class HeapSort
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) 
-																				throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
 	{
 		if(a == null)
 		{
