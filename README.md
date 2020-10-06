@@ -11,8 +11,8 @@ dsa
 |       ├───BubbleSort.java
 |       ├───HeapSort.java
 |       ├───InsertionSort.java
-|       ├───InvalidChoiceException.java
 |       ├───MergeSort.java
+|       ├───QuickSort.java
 |       ├───SelectionSort.java
 |       └───InvalidChoiceException.java
 └───datastructures
