@@ -13,6 +13,7 @@ dsa
 |       ├───InsertionSort.java
 |       ├───MergeSort.java
 |       ├───QuickSort.java
+|       ├───RandomizedQuickSort.java
 |       ├───SelectionSort.java
 |       └───InvalidChoiceException.java
 └───datastructures
