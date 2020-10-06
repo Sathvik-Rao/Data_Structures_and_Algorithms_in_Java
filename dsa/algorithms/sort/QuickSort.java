@@ -7,8 +7,7 @@ package dsa.algorithms.sort;
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.</p>
  *
- * <p>Time and space complexity varies according to the input. 
- * It is implemented using traditional quicksort which is <b>least effecient</b>.</p>
+ * <p>Time and space complexity varies according to the input.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
  * 	<tr>
