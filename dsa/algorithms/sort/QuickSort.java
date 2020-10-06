@@ -8,7 +8,7 @@ package dsa.algorithms.sort;
  * if the specified array reference is null, except where noted.</p>
  *
  * <p>Time and space complexity varies according to the input. 
- * It is implemented using traditional quicksort which is <b>least effecient</b></p>
+ * It is implemented using traditional quicksort which is <b>least effecient</b>.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
  * 	<tr>
