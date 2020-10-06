@@ -2,7 +2,7 @@ package dsa.algorithms.sort;
 
 
 /**
- * This class contains sort methods which are implemented using Quicksort(one-pivot).
+ * This class contains sort methods which are implemented using traditional (one-pivot) Quicksort.
  *
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.</p>
