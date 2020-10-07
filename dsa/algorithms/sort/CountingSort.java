@@ -10,7 +10,8 @@ package dsa.algorithms.sort;
  * <p>Counting sort is generally only ever used if <b>k</b> isn’t larger than <b>n</b>; in other words, 
  * if the <b>range of input</b> values isn’t greater than the <b>number of values</b> to be sorted.</p>
  * 
- * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
+ * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity
+ *																				 where k is range of input.">
  * 	<tr>
  * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Best)</th>
  * 	 <th style = "border: 1px solid black; padding: 15px;">Time Complexity(Average)</th>
@@ -21,7 +22,7 @@ package dsa.algorithms.sort;
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n + k)</td>
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n + k)</td>
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n + k)</td>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(k)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n + k)</td>
  * 	</tr>
  * </table>
  *
