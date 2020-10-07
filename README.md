@@ -9,6 +9,7 @@ dsa
 |   |   └───MaximumSubArraySum.java
 │   └───sort
 |       ├───BubbleSort.java
+|       ├───CountingSort.java
 |       ├───HeapSort.java
 |       ├───InsertionSort.java
 |       ├───MergeSort.java
