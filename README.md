@@ -25,6 +25,5 @@ dsa
 
 It is still under development and takes time.
 
-### Author - Sathvik
 
-### Start Date - 30/09/2020
+###### Start Date - 30/09/2020
