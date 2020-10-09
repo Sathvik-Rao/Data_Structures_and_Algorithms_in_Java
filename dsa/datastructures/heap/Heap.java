@@ -77,9 +77,15 @@ public final class Heap<T extends Comparable<T>>
 	 *
 	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
 	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * @throws NullPointerException if the {@code str} element is null
 	 */
     public Heap(String str) throws InvalidChoiceException
 	{
+		if(str == null)
+		{
+            throw new NullPointerException();
+		}
+		
 		elementData = new Object[capacity];
 		choice = str.trim().toLowerCase();
 		if(!choice.equals("min") && !(choice.equals("max")))
@@ -96,9 +102,15 @@ public final class Heap<T extends Comparable<T>>
 	 * @param initialCapacity the initial capacity for the heap
 	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
 	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * @throws NullPointerException if the {@code str} element is null
 	 */
 	public Heap(int initialCapacity, String str) throws InvalidChoiceException
 	{
+		if(str == null)
+		{
+            throw new NullPointerException();
+		}
+		
 		if (initialCapacity > 0) 
 		{
 			capacity = initialCapacity;
