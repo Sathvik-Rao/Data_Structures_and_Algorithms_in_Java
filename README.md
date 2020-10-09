@@ -7,18 +7,20 @@ dsa
 ├───algorithms
 │   ├───problems
 |   |   └───MaximumSubArraySum.java
-│   └───sort
-|       ├───BubbleSort.java
-|       ├───BucketSort.java
-|       ├───CountingSort.java
-|       ├───HeapSort.java
-|       ├───InsertionSort.java
-|       ├───MergeSort.java
-|       ├───QuickSort.java
-|       ├───RadixSort.java
-|       ├───RandomizedQuickSort.java
-|       ├───SelectionSort.java
-|       └───InvalidChoiceException.java
+│   ├───sort
+|   |   ├───BubbleSort.java
+|   |   ├───BucketSort.java
+|   |   ├───CountingSort.java
+|   |   ├───HeapSort.java
+|   |   ├───InsertionSort.java
+|   |   ├───MergeSort.java
+|   |   ├───QuickSort.java
+|   |   ├───RadixSort.java
+|   |   ├───RandomizedQuickSort.java
+|   |   ├───SelectionSort.java
+|   |   └───InvalidChoiceException.java
+|   └───search
+|       └───LinearSearch.java
 └───datastructures
     └───heap
         ├───Heap.java
