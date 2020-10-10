@@ -21,8 +21,10 @@ dsa
 |   └───search
 |       └───LinearSearch.java
 └───datastructures
-    └───heap
-        └───Heap.java
+    ├───heap
+    |   └───Heap.java
+    └───list
+        └───DynamicArray.java
 ```
 
 It is still under development and takes time.
