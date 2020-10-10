@@ -52,7 +52,6 @@ package dsa.datastructures.heap;
  * @author  Sathvik
  * @version 1.0
  * @param <T> the type of elements that implements Comparable interface
- * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  */
 public final class Heap<T extends Comparable<T>>
 {	
@@ -76,10 +75,10 @@ public final class Heap<T extends Comparable<T>>
 	 * capacity (11) that orders its elements according to the order specified.
 	 *
 	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
-	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * @throws IllegalArgumentException {@code if(!str.equals("min") && !str.equals("max")}
 	 * @throws NullPointerException if {@code str} is null
 	 */
-    public Heap(String str) throws InvalidChoiceException
+    public Heap(String str)
 	{
 		if(str == null)
 		{
@@ -90,7 +89,8 @@ public final class Heap<T extends Comparable<T>>
 		choice = str.trim().toLowerCase();
 		if(!choice.equals("min") && !(choice.equals("max")))
 		{
-			throw new InvalidChoiceException(choice);
+			throw new IllegalArgumentException("Invalid choice \"" + choice +  
+			"\", excepted \"min\" for min heap or \"max\" for max heap.");
 		}
 		initialize();
 	}
@@ -101,10 +101,10 @@ public final class Heap<T extends Comparable<T>>
 	 *
 	 * @param initialCapacity the initial capacity for the heap
 	 * @param str min heap {@code if(str == "min")} or max heap {@code if(str == "min")}
-	 * @throws InvalidChoiceException {@code if(str != "min" || str != "max") }
+	 * @throws IllegalArgumentException {@code if(!str.equals("min") && !str.equals("max")}
 	 * @throws NullPointerException if {@code str} is null
 	 */
-	public Heap(int initialCapacity, String str) throws InvalidChoiceException
+	public Heap(int initialCapacity, String str)
 	{
 		if(str == null)
 		{
@@ -130,7 +130,8 @@ public final class Heap<T extends Comparable<T>>
 		choice = str.trim().toLowerCase();
 		if(!choice.equals("min") && !(choice.equals("max")))
 		{
-			throw new InvalidChoiceException(choice);
+			throw new IllegalArgumentException("Invalid choice \"" + choice +  
+			"\", excepted \"min\" for min heap or \"max\" for max heap.");
 		}
 	}
 	
