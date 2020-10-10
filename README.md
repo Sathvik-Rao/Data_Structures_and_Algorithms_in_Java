@@ -17,14 +17,12 @@ dsa
 |   |   ├───QuickSort.java
 |   |   ├───RadixSort.java
 |   |   ├───RandomizedQuickSort.java
-|   |   ├───SelectionSort.java
-|   |   └───InvalidChoiceException.java
+|   |   └───SelectionSort.java
 |   └───search
 |       └───LinearSearch.java
 └───datastructures
     └───heap
-        ├───Heap.java
-        └───InvalidChoiceException.java
+        └───Heap.java
 ```
 
 It is still under development and takes time.
