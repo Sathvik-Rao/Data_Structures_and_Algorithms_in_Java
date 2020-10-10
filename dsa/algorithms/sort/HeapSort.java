@@ -29,7 +29,6 @@ import dsa.datastructures.heap.Heap;
  *
  * @author  Sathvik
  * @version 1.0
- * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  * @see <a href="../../../dsa/datastructures/heap/Heap.html">Heap</a>
  */
 public class HeapSort
@@ -47,9 +46,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, char c) throws InvalidChoiceException
+	public static void sort(char[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -61,45 +60,37 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Character> h = new Heap<Character>(a.length, "min");
+				for(Character ref : a)
 				{
-					Heap<Character> h = new Heap<Character>(a.length, "min");
-				
-					for(Character ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Character> h = new Heap<Character>(a.length, "max");
+				for(Character ref : a)
 				{
-					Heap<Character> h = new Heap<Character>(a.length, "max");
-				
-					for(Character ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
+				
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -116,9 +107,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(char[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -132,45 +123,39 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
-					{
-						Heap<Character> h = new Heap<Character>(a.length, "min");
+					Heap<Character> h = new Heap<Character>(a.length, "min");
 					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
+					
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Character> h = new Heap<Character>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Character> h = new Heap<Character>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
+					
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -195,9 +180,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -209,45 +194,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Byte> h = new Heap<Byte>(a.length, "min");
+				for(Byte ref : a)
 				{
-					Heap<Byte> h = new Heap<Byte>(a.length, "min");
-				
-					for(Byte ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Byte> h = new Heap<Byte>(a.length, "max");
+				for(Byte ref : a)
 				{
-					Heap<Byte> h = new Heap<Byte>(a.length, "max");
-				
-					for(Byte ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -264,9 +240,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -280,45 +256,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Byte> h = new Heap<Byte>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Byte> h = new Heap<Byte>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Byte> h = new Heap<Byte>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Byte> h = new Heap<Byte>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -343,9 +310,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, char c) throws InvalidChoiceException
+	public static void sort(short[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -357,45 +324,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Short> h = new Heap<Short>(a.length, "min");
+				for(Short ref : a)
 				{
-					Heap<Short> h = new Heap<Short>(a.length, "min");
-				
-					for(Short ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Short> h = new Heap<Short>(a.length, "max");
+				for(Short ref : a)
 				{
-					Heap<Short> h = new Heap<Short>(a.length, "max");
-				
-					for(Short ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -412,9 +370,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(short[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -428,45 +386,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Short> h = new Heap<Short>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Short> h = new Heap<Short>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Short> h = new Heap<Short>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Short> h = new Heap<Short>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -491,9 +440,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, char c) throws InvalidChoiceException
+	public static void sort(int[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -505,45 +454,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Integer> h = new Heap<Integer>(a.length, "min");
+				for(Integer ref : a)
 				{
-					Heap<Integer> h = new Heap<Integer>(a.length, "min");
-				
-					for(Integer ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Integer> h = new Heap<Integer>(a.length, "max");
+				for(Integer ref : a)
 				{
-					Heap<Integer> h = new Heap<Integer>(a.length, "max");
-				
-					for(Integer ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -560,9 +500,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(int[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -576,45 +516,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Integer> h = new Heap<Integer>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Integer> h = new Heap<Integer>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Integer> h = new Heap<Integer>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Integer> h = new Heap<Integer>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -639,9 +570,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, char c) throws InvalidChoiceException
+	public static void sort(long[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -653,45 +584,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Long> h = new Heap<Long>(a.length, "min");
+				for(Long ref : a)
 				{
-					Heap<Long> h = new Heap<Long>(a.length, "min");
-				
-					for(Long ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+				a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Long> h = new Heap<Long>(a.length, "max");
+				for(Long ref : a)
 				{
-					Heap<Long> h = new Heap<Long>(a.length, "max");
-				
-					for(Long ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -708,9 +630,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(long[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -724,45 +646,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Long> h = new Heap<Long>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Long> h = new Heap<Long>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Long> h = new Heap<Long>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Long> h = new Heap<Long>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -787,9 +700,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, char c) throws InvalidChoiceException
+	public static void sort(float[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -801,45 +714,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Float> h = new Heap<Float>(a.length, "min");
+				for(Float ref : a)
 				{
-					Heap<Float> h = new Heap<Float>(a.length, "min");
-				
-					for(Float ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Float> h = new Heap<Float>(a.length, "max");
+				for(Float ref : a)
 				{
-					Heap<Float> h = new Heap<Float>(a.length, "max");
-				
-					for(Float ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -856,9 +760,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(float[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -872,45 +776,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Float> h = new Heap<Float>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Float> h = new Heap<Float>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Float> h = new Heap<Float>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Float> h = new Heap<Float>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -935,9 +830,9 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, char c) throws InvalidChoiceException
+	public static void sort(double[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -949,45 +844,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<Double> h = new Heap<Double>(a.length, "min");
+				for(Double ref : a)
 				{
-					Heap<Double> h = new Heap<Double>(a.length, "min");
-				
-					for(Double ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<Double> h = new Heap<Double>(a.length, "max");
+				for(Double ref : a)
 				{
-					Heap<Double> h = new Heap<Double>(a.length, "max");
-				
-					for(Double ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -1004,9 +890,9 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(double[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -1020,45 +906,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<Double> h = new Heap<Double>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Double> h = new Heap<Double>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<Double> h = new Heap<Double>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<Double> h = new Heap<Double>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -1086,11 +963,11 @@ public class HeapSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -1102,45 +979,36 @@ public class HeapSort
 			// Ascending Order
 			if(c == 'a' || c == 'A')
 			{
-				try 
+				Heap<T> h = new Heap<T>(a.length, "min");
+				for(T ref : a)
 				{
-					Heap<T> h = new Heap<T>(a.length, "min");
-				
-					for(T ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Descending Order
 			else if(c == 'd' || c == 'D')
 			{
-				try 
+				Heap<T> h = new Heap<T>(a.length, "max");
+				for(T ref : a)
 				{
-					Heap<T> h = new Heap<T>(a.length, "max");
-				
-					for(T ref : a)
-					{
-						h.add(ref);
-					}
-					for(int i = 0; i < a.length; i++)
-					{
-						a[i] = h.poll();
-					}
+					h.add(ref);
 				}
-				catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+				for(int i = 0; i < a.length; i++)
+				{
+					a[i] = h.poll();
+				}
 			}
 			
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -1161,11 +1029,11 @@ public class HeapSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -1179,45 +1047,36 @@ public class HeapSort
 				// Ascending Order
 				if(c == 'a' || c == 'A')
 				{
-					try 
+					Heap<T> h = new Heap<T>(a.length, "min");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<T> h = new Heap<T>(a.length, "min");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
-					try 
+					Heap<T> h = new Heap<T>(a.length, "max");
+					for(int i = fromIndex; i < toIndex; i++)
 					{
-						Heap<T> h = new Heap<T>(a.length, "max");
-					
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							h.add(a[i]);
-						}
-						for(int i = fromIndex; i < toIndex; i++)
-						{
-							a[i] = h.poll();
-						}
+						h.add(a[i]);
 					}
-					catch(dsa.datastructures.heap.InvalidChoiceException e) {}
+					for(int i = fromIndex; i < toIndex; i++)
+					{
+						a[i] = h.poll();
+					}
 				}
 				
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else

@@ -32,7 +32,6 @@ import java.util.Collections;
  *
  * @author  Sathvik
  * @version 1.0
- * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  */
 public class BucketSort
 {	
@@ -49,9 +48,9 @@ public class BucketSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, char c) throws InvalidChoiceException
+	public static void sort(float[] a, char c)
 	{
 		if(a == null)
 		{
@@ -135,7 +134,8 @@ public class BucketSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -150,11 +150,11 @@ public class BucketSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(float[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -240,7 +240,8 @@ public class BucketSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -265,9 +266,9 @@ public class BucketSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, char c) throws InvalidChoiceException
+	public static void sort(double[] a, char c)
 	{
 		if(a == null)
 		{
@@ -351,7 +352,8 @@ public class BucketSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -366,11 +368,11 @@ public class BucketSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(double[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -456,7 +458,8 @@ public class BucketSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -481,9 +484,9 @@ public class BucketSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(Float[] a, char c) throws InvalidChoiceException
+	public static void sort(Float[] a, char c)
 	{
 		if(a == null)
 		{
@@ -567,7 +570,8 @@ public class BucketSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -582,11 +586,11 @@ public class BucketSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(Float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(Float[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -672,7 +676,8 @@ public class BucketSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -697,9 +702,9 @@ public class BucketSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(Double[] a, char c) throws InvalidChoiceException
+	public static void sort(Double[] a, char c)
 	{
 		if(a == null)
 		{
@@ -783,7 +788,8 @@ public class BucketSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -798,11 +804,11 @@ public class BucketSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(Double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(Double[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -888,7 +894,8 @@ public class BucketSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else

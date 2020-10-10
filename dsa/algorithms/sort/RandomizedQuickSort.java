@@ -27,7 +27,6 @@ import java.util.Random;
  *
  * @author  Sathvik
  * @version 1.0
- * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  */
 public class RandomizedQuickSort
 {	
@@ -46,9 +45,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, char c) throws InvalidChoiceException
+	public static void sort(char[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -72,7 +71,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -89,9 +89,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(char[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -117,7 +117,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -210,9 +211,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -236,7 +237,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -253,9 +255,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -281,7 +283,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -374,9 +377,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, char c) throws InvalidChoiceException
+	public static void sort(short[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -400,7 +403,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -417,9 +421,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(short[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -445,7 +449,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -538,9 +543,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, char c) throws InvalidChoiceException
+	public static void sort(int[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -564,7 +569,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -581,9 +587,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(int[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -609,7 +615,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -702,9 +709,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, char c) throws InvalidChoiceException
+	public static void sort(long[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -728,7 +735,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -745,9 +753,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(long[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -773,7 +781,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -866,9 +875,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, char c) throws InvalidChoiceException
+	public static void sort(float[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -892,7 +901,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -909,9 +919,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(float[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -937,7 +947,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -1030,9 +1041,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, char c) throws InvalidChoiceException
+	public static void sort(double[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -1056,7 +1067,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -1073,9 +1085,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(double[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -1101,7 +1113,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -1195,9 +1208,9 @@ public class RandomizedQuickSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, char c) 
 	{
 		if(a == null)
 		{
@@ -1221,7 +1234,8 @@ public class RandomizedQuickSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -1239,9 +1253,9 @@ public class RandomizedQuickSort
 	 *
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) 
 	{
 		if(a == null)
 		{
@@ -1267,7 +1281,8 @@ public class RandomizedQuickSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else

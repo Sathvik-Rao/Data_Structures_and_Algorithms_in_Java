@@ -30,7 +30,6 @@ package dsa.algorithms.sort;
  *
  * @author  Sathvik
  * @version 1.0
- * @see <a href="InvalidChoiceException.html">InvalidChoiceException</a>
  */
 public class BubbleSort
 {	
@@ -47,9 +46,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, char c) throws InvalidChoiceException
+	public static void sort(char[] a, char c)
 	{
 		if(a == null)
 		{
@@ -97,7 +96,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -112,11 +112,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(char[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(char[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -166,7 +166,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -191,9 +192,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, char c)
 	{
 		if(a == null)
 		{
@@ -241,7 +242,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+			   "\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -256,11 +258,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(byte[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(byte[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -310,7 +312,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+						"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -335,9 +338,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, char c) throws InvalidChoiceException
+	public static void sort(short[] a, char c)
 	{
 		if(a == null)
 		{
@@ -385,7 +388,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -400,11 +404,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(short[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(short[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -454,7 +458,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -479,9 +484,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, char c) throws InvalidChoiceException
+	public static void sort(int[] a, char c)
 	{
 		if(a == null)
 		{
@@ -529,7 +534,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -544,11 +550,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(int[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(int[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -598,7 +604,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -623,9 +630,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, char c) throws InvalidChoiceException
+	public static void sort(long[] a, char c)
 	{
 		if(a == null)
 		{
@@ -673,7 +680,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -688,11 +696,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(long[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(long[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -742,7 +750,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -767,9 +776,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, char c) throws InvalidChoiceException
+	public static void sort(float[] a, char c)
 	{
 		if(a == null)
 		{
@@ -817,7 +826,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -832,11 +842,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(float[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(float[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -886,7 +896,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -911,9 +922,9 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, char c) throws InvalidChoiceException
+	public static void sort(double[] a, char c)
 	{
 		if(a == null)
 		{
@@ -961,7 +972,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -976,11 +988,11 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static void sort(double[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static void sort(double[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -1030,7 +1042,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
@@ -1058,11 +1071,11 @@ public class BubbleSort
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, char c)
 	{
 		if(a == null)
 		{
@@ -1110,7 +1123,8 @@ public class BubbleSort
 			// Invalid Character
 			else
 			{
-				throw new InvalidChoiceException(c);
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 			}
 		}
 	}
@@ -1129,13 +1143,13 @@ public class BubbleSort
 	 * @param fromIndex the index of the first element, inclusive, to be sorted
 	 * @param toIndex the index of the last element, exclusive, to be sorted
 	 *
+	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
-	 * @throws InvalidChoiceException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws ClassCastException if the array contains elements that are not mutually comparable 
 	 *		   (for example, strings and integers)
 	 */
-	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c) throws InvalidChoiceException
+	public static <T extends Comparable<T>> void sort(T[] a, int fromIndex, int toIndex, char c)
 	{
 		if(a == null)
 		{
@@ -1185,7 +1199,8 @@ public class BubbleSort
 				// Invalid Character
 				else
 				{
-					throw new InvalidChoiceException(c);
+					throw new IllegalArgumentException("Invalid choice \'" + c + 
+					"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
 				}
 			}
 			else
