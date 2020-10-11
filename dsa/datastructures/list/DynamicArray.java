@@ -1,7 +1,7 @@
 package dsa.datastructures.list;
 
-import static dsa.algorithms.search.LinearSearch.*;
-import dsa.algorithms.sort.MergeSort;
+import dsa.algorithms.search.LinearSearch;
+import java.util.Arrays;
 
 /**
  * The {@code DynamicArray} class contains components that can be accessed using an integer index. 
@@ -38,6 +38,12 @@ import dsa.algorithms.sort.MergeSort;
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n)</td>
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n)</td>
  * 	</tr>
+ *	<tr>
+ *	 <th style = "border: 1px solid black; padding: 15px;">Random Access(get)</th>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(1)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(1)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(1)</td>
+ * 	</tr>
  *  <tr>
  *	 <th style = "border: 1px solid black; padding: 15px;">Search(contains)</th>
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(1)</td>
@@ -46,9 +52,9 @@ import dsa.algorithms.sort.MergeSort;
  * 	</tr>
  *	<tr>
  *	 <th style = "border: 1px solid black; padding: 15px;">Sort(sort)</th>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n)</td>
  * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n logn)</td>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n<sup STYLE="font-size:8.0pt">2</sup>)</td>
  * 	</tr>
  * </table>
  *
@@ -62,7 +68,7 @@ public class DynamicArray
 	 * {@code capacity} is the actual capacity of dynamic array. 
 	 * Default capacity is {@code 11} if not specified. 
 	 */
-	protected int capacity;
+	private int capacity;
 	
 	/**
 	 * The amount by which the capacity of the {@code DynamicArray} is automatically
@@ -70,47 +76,47 @@ public class DynamicArray
 	 * If {@code capacityIncrement} is not specified then incrementation is {@code capacity += (capacity/2) + 1}.
 	 * If {@code capacityIncrement} is specified then incrementation is {@code capacity += capacityIncrement}.
 	 */
-	protected int capacityIncrement;
+	private int capacityIncrement;
 	
 	/**
 	 * {@code end} holds the last index of {@code DynamicArray}.
 	 */
-	protected int end = 0;
+	private int end = 0;
 	
 	/**
 	 * char array
 	 */
-	protected char[] _char_;
+	private char[] _char_;
 	
 	/**
 	 * byte array
 	 */
-	protected byte[] _byte_;
+	private byte[] _byte_;
 	
 	/**
 	 * short array
 	 */
-	protected short[] _short_;
+	private short[] _short_;
 	
 	/**
 	 * int array
 	 */
-	protected int[] _int_;
+	private int[] _int_;
 	
 	/**
 	 * long array
 	 */
-	protected long[] _long_;
+	private long[] _long_;
 	
 	/**
 	 * float array
 	 */
-	protected float[] _float_;
+	private float[] _float_;
 	
 	/**
 	 * double array
 	 */
-	protected double[] _double_;
+	private double[] _double_;
 	
 	/**
 	 * It is the array representaion of choices and their corresponding values. <br>
@@ -123,7 +129,7 @@ public class DynamicArray
 	 * choice[6] = double <br><br>
 	 * ex - choice = {0, 0, 0, 1, 0, 0, 0}; //choice is int
 	 */
-	protected byte[] choice = {0, 0, 0, 0, 0, 0, 0};
+	private byte[] choice = {0, 0, 0, 0, 0, 0, 0};
 	
 	private final byte ONE = 1;
 	
@@ -1550,7 +1556,7 @@ public class DynamicArray
 	public synchronized boolean contains(char element) 
 	{
 		choiceCheck(0);
-		if(search(_char_, 0, end, element) > -1)
+		if(LinearSearch.search(_char_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1569,7 +1575,7 @@ public class DynamicArray
 	public synchronized boolean contains(byte element) 
 	{
 		choiceCheck(1);
-		if(search(_byte_, 0, end, element) > -1)
+		if(LinearSearch.search(_byte_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1588,7 +1594,7 @@ public class DynamicArray
 	public synchronized boolean contains(short element) 
 	{
 		choiceCheck(2);
-		if(search(_short_, 0, end, element) > -1)
+		if(LinearSearch.search(_short_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1607,7 +1613,7 @@ public class DynamicArray
 	public synchronized boolean contains(int element) 
 	{
 		choiceCheck(3);
-		if(search(_int_, 0, end, element) > -1)
+		if(LinearSearch.search(_int_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1626,7 +1632,7 @@ public class DynamicArray
 	public synchronized boolean contains(long element) 
 	{
 		choiceCheck(4);
-		if(search(_long_, 0, end, element) > -1)
+		if(LinearSearch.search(_long_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1645,7 +1651,7 @@ public class DynamicArray
 	public synchronized boolean contains(float element) 
 	{
 		choiceCheck(5);
-		if(search(_float_, 0, end, element) > -1)
+		if(LinearSearch.search(_float_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1664,7 +1670,7 @@ public class DynamicArray
 	public synchronized boolean contains(double element) 
 	{
 		choiceCheck(6);
-		if(search(_double_, 0, end, element) > -1)
+		if(LinearSearch.search(_double_, 0, end, element) > -1)
 		{
 			return true;
 		}
@@ -1945,49 +1951,48 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Sorts this DynamicArray according to the order specified by the character {@code c}.
-	 * Algorithm used to sort elements is merge search.
+	 * Sorts this DynamicArray according to the order specified by the character {@code c}.<br>
+	 * <b>Note: Array trims to it's size before sorting.</b>
 	 *
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
-	 * @see <a href="../../algorithms/sort/MergeSort.html">MergeSort</a>
 	 */
 	public synchronized void sort(char c)
 	{
 		if (choice[0] == ONE)
 		{
-			MergeSort.sort(_char_, c);
+			sort(0, end, c);
 		}
 		else if(choice[1] == ONE)
 		{
-			MergeSort.sort(_byte_, c);
+			sort(0, end, c);
 		}
 		else if(choice[2] == ONE)
 		{
-			MergeSort.sort(_short_, c);
+			sort(0, end, c);
 		}
 		else if(choice[3] == ONE)
 		{
-			MergeSort.sort(_int_, c);
+			sort(0, end, c);
 		}
 		else if(choice[4] == ONE)
 		{
-			MergeSort.sort(_long_, c);
+			sort(0, end, c);
 		}
 		else if(choice[5] == ONE)
 		{
-			MergeSort.sort(_float_, c);
+			sort(0, end, c);
 		}
 		else
 		{
-			MergeSort.sort(_double_, c);
+			sort(0, end, c);
 		}
 	}
 	
 	/**
-	 * Sorts this DynamicArray according to the order specified by the character {@code c}.
-	 * Algorithm used to sort elements is merge search.
+	 * Sorts this DynamicArray according to the order specified by the character {@code c}.<br>
+	 * <b>Note: Array trims to it's size before sorting.</b>
 	 *
 	 * @param c {@code if(c == 'a' || c == 'A')} then sort <b>a</b> in ascending order,
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
@@ -1996,37 +2001,183 @@ public class DynamicArray
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > array.length)}
-	 * @see <a href="../../algorithms/sort/MergeSort.html">MergeSort</a>
 	 */
 	public synchronized void sort(int fromIndex, int toIndex, char c)
 	{
 		if (choice[0] == ONE)
 		{
-			MergeSort.sort(_char_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_char_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_char_, fromIndex, toIndex);
+				char temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _char_[i];
+					_char_[i] = _char_[j];
+					_char_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else if(choice[1] == ONE)
 		{
-			MergeSort.sort(_byte_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_byte_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_byte_, fromIndex, toIndex);
+				byte temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _byte_[i];
+					_byte_[i] = _byte_[j];
+					_byte_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else if(choice[2] == ONE)
 		{
-			MergeSort.sort(_short_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_short_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_short_, fromIndex, toIndex);
+				short temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _short_[i];
+					_short_[i] = _short_[j];
+					_short_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else if(choice[3] == ONE)
 		{
-			MergeSort.sort(_int_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_int_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_int_, fromIndex, toIndex);
+				int temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _int_[i];
+					_int_[i] = _int_[j];
+					_int_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else if(choice[4] == ONE)
 		{
-			MergeSort.sort(_long_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_long_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_long_, fromIndex, toIndex);
+				long temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _long_[i];
+					_long_[i] = _long_[j];
+					_long_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else if(choice[5] == ONE)
 		{
-			MergeSort.sort(_float_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_float_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_float_, fromIndex, toIndex);
+				float temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _float_[i];
+					_float_[i] = _float_[j];
+					_float_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 		else
 		{
-			MergeSort.sort(_double_, fromIndex, toIndex, c);
+			if(c == 'a' || c == 'A')
+			{
+				shrink(true);
+				Arrays.sort(_double_, fromIndex, toIndex);
+			}
+			else if (c == 'd' || c == 'D')
+			{
+				shrink(true);
+				Arrays.sort(_double_, fromIndex, toIndex);
+				double temp;
+				for(int i = fromIndex, j = toIndex - 1; i < j; i++, j--)
+				{
+					temp = _double_[i];
+					_double_[i] = _double_[j];
+					_double_[j] = temp;
+				}
+			}
+			else
+			{
+				throw new IllegalArgumentException("Invalid choice \'" + c + 
+				"\', excepted \'a\'/\'A\' for ascending and \'d\'/\'D\' for descending.");
+			}
 		}
 	}
 	
