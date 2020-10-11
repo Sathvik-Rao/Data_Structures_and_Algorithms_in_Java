@@ -25,6 +25,8 @@ dsa
     |   └───Heap.java
     ├───list
     |   └───DynamicArray.java
+    ├───queue
+    |   └───QueueArray.java
     └───stack
         └───StackArray.java
 ```
