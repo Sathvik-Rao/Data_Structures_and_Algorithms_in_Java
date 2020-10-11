@@ -23,8 +23,10 @@ dsa
 └───datastructures
     ├───heap
     |   └───Heap.java
-    └───list
-        └───DynamicArray.java
+    ├───list
+    |   └───DynamicArray.java
+    └───stack
+        └───StackArray.java
 ```
 
 It is still under development and takes time.
