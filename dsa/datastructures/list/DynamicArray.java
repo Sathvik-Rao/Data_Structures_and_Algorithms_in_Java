@@ -17,7 +17,7 @@ import java.util.Arrays;
  * capacity of a DynamicArray before inserting a large number of
  * components; this reduces the amount of incremental reallocation.</p>
  *
- * <p>{@code DynamicArray} works on <b>primitive types</b> and is <b>thread-safe</b>.</p>
+ * <p>{@code DynamicArray} works on <b>primitive types</b> and <b>thread-safe</b>.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time complexity">
  * 	<tr>
