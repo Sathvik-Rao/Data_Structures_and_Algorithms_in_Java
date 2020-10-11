@@ -5,7 +5,7 @@ import dsa.datastructures.list.DynamicArray;
 /**
  * The {@code StackArray} class contains stack operation which uses array to store data.
  *
- * <p>{@code StackArray} works on <b>primitive types</b> and is <b>thread-safe</b>.</p>
+ * <p>{@code StackArray} works on <b>primitive types</b> and <b>thread-safe</b>.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time complexity">
  * 	<tr>
