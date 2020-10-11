@@ -46,9 +46,9 @@ import dsa.algorithms.sort.MergeSort;
  * 	</tr>
  *	<tr>
  *	 <th style = "border: 1px solid black; padding: 15px;">Sort(sort)</th>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(nlogn)</td>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(nlogn)</td>
- * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(nlogn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#937;(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">&#952;(n logn)</td>
+ * 	 <td style = "border: 1px solid black; text-align: center; padding: 15px;">O(n logn)</td>
  * 	</tr>
  * </table>
  *
