@@ -213,24 +213,24 @@ public class DynamicArray
 		if (initialCapacity > 0) 
 		{
 			capacity = initialCapacity;
-        }
+		}
 		else if (initialCapacity == 0) 
 		{
-            capacity = 0;
-        }
+			capacity = 0;
+		}
 		else 
 		{
 			throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
-        }
+		}
 		
 		if (capacityIncrement > 0) 
 		{
 			this.capacityIncrement = capacityIncrement;
-        }
+		}
 		else 
 		{
 			throw new IllegalArgumentException("Illegal Capacity Increment: " + capacityIncrement);
-        }
+		}
 		
 		if (choice == null)
 		{
@@ -608,7 +608,7 @@ public class DynamicArray
 		_char_[i] = element;
 		end++;
 		return true;
-    }
+	}
 
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(byte).
@@ -634,7 +634,7 @@ public class DynamicArray
 		_byte_[i] = element;
 		end++;
 		return true;
-    }
+	}
 	
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(short).
@@ -660,7 +660,7 @@ public class DynamicArray
 		_short_[i] = element;
 		end++;
 		return true;
-    }
+	}
 
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(int).
@@ -686,7 +686,7 @@ public class DynamicArray
 		_int_[i] = element;
 		end++;
 		return true;
-    }
+	}
 
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(long).
@@ -712,7 +712,7 @@ public class DynamicArray
 		_long_[i] = element;
 		end++;
 		return true;
-    }
+	}
 
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(float).
@@ -738,7 +738,7 @@ public class DynamicArray
 		_float_[i] = element;
 		end++;
 		return true;
-    }
+	}
 
 	/**
 	 * Inserts the specified element at the specified position in this DynamicArray(double).
@@ -764,7 +764,7 @@ public class DynamicArray
 		_double_[i] = element;
 		end++;
 		return true;
-    }
+	}
 	
 	private void rangeChecker0(int index)
 	{
@@ -877,7 +877,7 @@ public class DynamicArray
 	public synchronized int indexOf(char element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -891,7 +891,7 @@ public class DynamicArray
 	public synchronized int indexOf(byte element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -905,7 +905,7 @@ public class DynamicArray
 	public synchronized int indexOf(short element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -919,7 +919,7 @@ public class DynamicArray
 	public synchronized int indexOf(int element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -933,7 +933,7 @@ public class DynamicArray
 	public synchronized int indexOf(long element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -947,7 +947,7 @@ public class DynamicArray
 	public synchronized int indexOf(float element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element
@@ -961,7 +961,7 @@ public class DynamicArray
 	public synchronized int indexOf(double element) 
 	{
 		return indexOf(element, 0);
-    }
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -985,8 +985,8 @@ public class DynamicArray
 				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 
 	/**
@@ -1004,15 +1004,15 @@ public class DynamicArray
 	public synchronized int indexOf(byte element, int index) 
 	{
 		choiceCheck(1);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_byte_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -1029,15 +1029,15 @@ public class DynamicArray
 	public synchronized int indexOf(short element, int index) 
 	{
 		choiceCheck(2);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_short_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -1054,15 +1054,15 @@ public class DynamicArray
 	public synchronized int indexOf(int element, int index) 
 	{
 		choiceCheck(3);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_int_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -1079,15 +1079,15 @@ public class DynamicArray
 	public synchronized int indexOf(long element, int index) 
 	{
 		choiceCheck(4);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_long_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -1104,15 +1104,15 @@ public class DynamicArray
 	public synchronized int indexOf(float element, int index) 
 	{
 		choiceCheck(5);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_float_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the first occurrence of the specified element in
@@ -1129,15 +1129,15 @@ public class DynamicArray
 	public synchronized int indexOf(double element, int index) 
 	{
 		choiceCheck(6);
-        for(int i = index ; i < end ; i++)
+		for(int i = index ; i < end ; i++)
 		{
 			if (_double_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 
 	/**
@@ -1152,7 +1152,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(char element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1166,7 +1166,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(byte element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1180,7 +1180,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(short element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1194,7 +1194,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(int element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1208,7 +1208,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(long element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1222,7 +1222,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(float element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 	
 	/**
 	 * Returns the index of the last occurrence of the specified element
@@ -1236,7 +1236,7 @@ public class DynamicArray
 	public synchronized int lastIndexOf(double element) 
 	{
 		return lastIndexOf(element, (end-1));
-    }
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1257,17 +1257,17 @@ public class DynamicArray
 		choiceCheck(0);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_char_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1288,17 +1288,17 @@ public class DynamicArray
 		choiceCheck(1);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_byte_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1319,17 +1319,17 @@ public class DynamicArray
 		choiceCheck(2);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_short_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1350,17 +1350,17 @@ public class DynamicArray
 		choiceCheck(3);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_int_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1381,17 +1381,17 @@ public class DynamicArray
 		choiceCheck(4);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_long_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1412,17 +1412,17 @@ public class DynamicArray
 		choiceCheck(5);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_float_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 
 	/**
 	 * Returns the index of the last occurrence of the specified element in
@@ -1443,17 +1443,17 @@ public class DynamicArray
 		choiceCheck(6);
 		if (index >= end)
 		{
-            throw new IndexOutOfBoundsException(index + " >= "+ end);
+			throw new IndexOutOfBoundsException(index + " >= "+ end);
 		}
-        for(int i = index ; i > -1; i--)
+		for(int i = index ; i > -1; i--)
 		{
 			if (_double_[i] == element)
 			{
-                return i;
+				return i;
 			}
 		}
-        return -1;
-    }
+		return -1;
+	}
 	
 	/**
 	 * Returns the first component (the item at index {@code 0}) of
@@ -1467,7 +1467,7 @@ public class DynamicArray
 		{
 			return null;
 		}
-        if (choice[0] == ONE)
+		if (choice[0] == ONE)
 		{
 			return (Object)_char_[0];
 		}
@@ -1495,7 +1495,7 @@ public class DynamicArray
 		{
 			return (Object)_double_[0];
 		}
-    }
+	}
 
 	/**
 	 * Returns the last component of the DynamicArray.
@@ -1508,7 +1508,7 @@ public class DynamicArray
 		{
 			return null;
 		}
-        if (choice[0] == ONE)
+		if (choice[0] == ONE)
 		{
 			return (Object)_char_[end-1];
 		}
@@ -1536,7 +1536,7 @@ public class DynamicArray
 		{
 			return (Object)_double_[end-1];
 		}
-    }
+	}
 	
 	/**
 	 * Returns {@code true} if this DynamicArray(char) contains the specified element.
@@ -1720,8 +1720,8 @@ public class DynamicArray
 	 */	
 	public synchronized boolean isEmpty() 
 	{
-        return end == 0;
-    }
+		return end == 0;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(char)
@@ -1737,14 +1737,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(byte)
@@ -1760,14 +1760,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(short)
@@ -1783,14 +1783,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(int)
@@ -1806,14 +1806,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(long)
@@ -1829,14 +1829,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(float)
@@ -1852,14 +1852,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes the first occurrence of the specified element in this DynamicArray(double)
@@ -1875,14 +1875,14 @@ public class DynamicArray
 		{
 			return false;
 		}
-        int i = indexOf(element);
-        if (i > -1) 
+		int i = indexOf(element);
+		if (i > -1) 
 		{
-            removeAtIndex(i);
-            return true;
-        }
-        return false;
-    }
+			removeAtIndex(i);
+			return true;
+		}
+		return false;
+	}
 	
 	/**
 	 * Removes all of the elements from this DynamicArray.  The DynamicArray will
@@ -1892,7 +1892,7 @@ public class DynamicArray
 	{
 		end = 0;
 		shrink(true);
-    }
+	}
 	
 	/**
 	 * Returns the number of components in this DynamicArray.
@@ -1901,8 +1901,8 @@ public class DynamicArray
 	 */	
 	public synchronized int size() 
 	{
-        return end;
-    }
+		return end;
+	}
 	
 	/**
 	 * Returns the current capacity of this DynamicArray.
@@ -1911,8 +1911,8 @@ public class DynamicArray
 	 */
 	public synchronized int capacity() 
 	{
-        return capacity;
-    }
+		return capacity;
+	}
 	
 	/**
 	 * Increases the capacity of this DynamicArray, if necessary, to ensure
@@ -1926,11 +1926,11 @@ public class DynamicArray
 	 */	
 	public synchronized void ensureCapacity(int minCapacity) 
 	{
-        if (minCapacity > 0 && capacity < minCapacity) 
+		if (minCapacity > 0 && capacity < minCapacity) 
 		{  
-            grow(minCapacity);
-        }
-    }
+			grow(minCapacity);
+		}
+	}
 
 	/**
 	 * Trims the capacity of this DynamicArray to be the DynamicArray's current
@@ -1941,8 +1941,8 @@ public class DynamicArray
 	 */	
 	public synchronized void trimToSize() 
 	{
-        shrink(true);
-    }
+		shrink(true);
+	}
 	
 	/**
 	 * Sorts this DynamicArray according to the order specified by the character {@code c}.
@@ -1955,7 +1955,7 @@ public class DynamicArray
 	 */
 	public synchronized void sort(char c)
 	{
-        if (choice[0] == ONE)
+		if (choice[0] == ONE)
 		{
 			MergeSort.sort(_char_, c);
 		}
@@ -1983,7 +1983,7 @@ public class DynamicArray
 		{
 			MergeSort.sort(_double_, c);
 		}
-    }
+	}
 	
 	/**
 	 * Sorts this DynamicArray according to the order specified by the character {@code c}.
@@ -2000,7 +2000,7 @@ public class DynamicArray
 	 */
 	public synchronized void sort(int fromIndex, int toIndex, char c)
 	{
-        if (choice[0] == ONE)
+		if (choice[0] == ONE)
 		{
 			MergeSort.sort(_char_, fromIndex, toIndex, c);
 		}
@@ -2028,7 +2028,7 @@ public class DynamicArray
 		{
 			MergeSort.sort(_double_, fromIndex, toIndex, c);
 		}
-    }
+	}
 	
 	/**
 	 * Returns an array containing all of the elements in this DynamicArray.
