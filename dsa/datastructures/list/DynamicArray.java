@@ -543,7 +543,7 @@ public class DynamicArray
 		return true;
 	}
 	
-	private void rangeChecker(int index)
+	private void rangeCheck(int index)
 	{
 		if(index > end)
 		{
@@ -604,7 +604,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, char element) 
 	{
 		choiceCheck(0);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -630,7 +630,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, byte element) 
 	{
 		choiceCheck(1);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -656,7 +656,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, short element) 
 	{
 		choiceCheck(2);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -682,7 +682,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, int element) 
 	{
 		choiceCheck(3);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -708,7 +708,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, long element) 
 	{
 		choiceCheck(4);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -734,7 +734,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, float element) 
 	{
 		choiceCheck(5);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -760,7 +760,7 @@ public class DynamicArray
 	public synchronized boolean add(int index, double element) 
 	{
 		choiceCheck(6);
-		rangeChecker(index);
+		rangeCheck(index);
 		grow(0);
 		int i = end;
 		for( ; i > index; i--)
@@ -772,7 +772,7 @@ public class DynamicArray
 		return true;
 	}
 	
-	private void rangeChecker0(int index)
+	private void rangeCheck0(int index)
 	{
 		if(index >= end)
 		{
@@ -795,7 +795,7 @@ public class DynamicArray
 	 */
 	public synchronized Object removeAtIndex(int index)
 	{
-		rangeChecker0(index);
+		rangeCheck0(index);
 		Object o = null;
 		
 		if (choice[0] == ONE)
@@ -1686,7 +1686,7 @@ public class DynamicArray
 	 */	
 	public synchronized Object get(int index) 
 	{
-		rangeChecker0(index);
+		rangeCheck0(index);
 		if (choice[0] == ONE)
 		{
 			return (Object)_char_[index];
