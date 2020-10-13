@@ -879,6 +879,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int indexOf(char element) 
 	{
@@ -893,6 +894,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */		
 	public synchronized int indexOf(byte element) 
 	{
@@ -907,6 +909,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */		
 	public synchronized int indexOf(short element) 
 	{
@@ -921,6 +924,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */		
 	public synchronized int indexOf(int element) 
 	{
@@ -935,6 +939,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */			
 	public synchronized int indexOf(long element) 
 	{
@@ -949,6 +954,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */		
 	public synchronized int indexOf(float element) 
 	{
@@ -963,6 +969,7 @@ public class DynamicArray
 	 * @return the index of the first occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */		
 	public synchronized int indexOf(double element) 
 	{
@@ -980,10 +987,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int indexOf(char element, int index) 
 	{
 		choiceCheck(0);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_char_[i] == element)
@@ -1006,10 +1015,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(byte element, int index) 
 	{
 		choiceCheck(1);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_byte_[i] == element)
@@ -1031,10 +1042,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(short element, int index) 
 	{
 		choiceCheck(2);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_short_[i] == element)
@@ -1056,10 +1069,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(int element, int index) 
 	{
 		choiceCheck(3);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_int_[i] == element)
@@ -1081,10 +1096,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(long element, int index) 
 	{
 		choiceCheck(4);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_long_[i] == element)
@@ -1106,10 +1123,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(float element, int index) 
 	{
 		choiceCheck(5);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_float_[i] == element)
@@ -1131,10 +1150,12 @@ public class DynamicArray
 	 *         this DynamicArray at position {@code index} or later in the DynamicArray;
 	 *         {@code -1} if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int indexOf(double element, int index) 
 	{
 		choiceCheck(6);
+		rangeCheck0(index);
 		for(int i = index ; i < end ; i++)
 		{
 			if (_double_[i] == element)
@@ -1154,6 +1175,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */
 	public synchronized int lastIndexOf(char element) 
 	{
@@ -1168,6 +1190,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */
 	public synchronized int lastIndexOf(byte element) 
 	{
@@ -1182,6 +1205,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int lastIndexOf(short element) 
 	{
@@ -1196,6 +1220,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int lastIndexOf(int element) 
 	{
@@ -1210,6 +1235,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int lastIndexOf(long element) 
 	{
@@ -1224,6 +1250,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int lastIndexOf(float element) 
 	{
@@ -1238,6 +1265,7 @@ public class DynamicArray
 	 * @return the index of the last occurrence of the specified element in
 	 *         this DynamicArray, or -1 if this DynamicArray does not contain the element
 	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException if array is empty
 	 */	
 	public synchronized int lastIndexOf(double element) 
 	{
@@ -1255,16 +1283,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(char element, int index) 
 	{
 		choiceCheck(0);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_char_[i] == element)
@@ -1286,16 +1310,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */		
 	public synchronized int lastIndexOf(byte element, int index) 
 	{
 		choiceCheck(1);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_byte_[i] == element)
@@ -1317,16 +1337,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(short element, int index) 
 	{
 		choiceCheck(2);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_short_[i] == element)
@@ -1348,16 +1364,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(int element, int index) 
 	{
 		choiceCheck(3);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_int_[i] == element)
@@ -1379,16 +1391,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(long element, int index) 
 	{
 		choiceCheck(4);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_long_[i] == element)
@@ -1410,16 +1418,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(float element, int index) 
 	{
 		choiceCheck(5);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_float_[i] == element)
@@ -1441,16 +1445,12 @@ public class DynamicArray
 	 *         less than or equal to {@code index} in this DynamicArray;
 	 *         -1 if the element is not found.
 	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
-	 * @throws IndexOutOfBoundsException if the specified index is 
-	 *         greater than or equal to the current size of this DynamicArray
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
 	 */	
 	public synchronized int lastIndexOf(double element, int index) 
 	{
 		choiceCheck(6);
-		if (index >= end)
-		{
-			throw new IndexOutOfBoundsException(index + " >= "+ end);
-		}
+		rangeCheck0(index);
 		for(int i = index ; i > -1; i--)
 		{
 			if (_double_[i] == element)
