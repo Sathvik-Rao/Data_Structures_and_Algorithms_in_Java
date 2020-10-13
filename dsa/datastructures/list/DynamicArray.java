@@ -561,31 +561,31 @@ public class DynamicArray
 		{
 			if(index == 0)
 			{
-				throw new IllegalArgumentException("add(char) not allowed");
+				throw new IllegalArgumentException("\'char\' method call not allowed");
 			}
 			else if(index == 1)
 			{
-				throw new IllegalArgumentException("add(byte) not allowed");
+				throw new IllegalArgumentException("\'byte\' method call not allowed");
 			}
 			else if(index == 2)
 			{
-				throw new IllegalArgumentException("add(short) not allowed");
+				throw new IllegalArgumentException("\'short\' method call not allowed");
 			}
 			else if(index == 3)
 			{
-				throw new IllegalArgumentException("add(int) not allowed");
+				throw new IllegalArgumentException("\'int\' method call not allowed");
 			}
 			else if(index == 4)
 			{
-				throw new IllegalArgumentException("add(long) not allowed");
+				throw new IllegalArgumentException("\'long\' method call not allowed");
 			}
 			else if(index == 5)
 			{
-				throw new IllegalArgumentException("add(float) not allowed");
+				throw new IllegalArgumentException("\'float\' method call not allowed");
 			}
 			else
 			{
-				throw new IllegalArgumentException("add(double) not allowed");
+				throw new IllegalArgumentException("\'double\' method call not allowed");
 			}
 		}
 	}
