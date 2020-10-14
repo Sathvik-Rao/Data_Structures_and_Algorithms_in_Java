@@ -1,11 +1,11 @@
 package dsa.datastructures.queue;
 
-import dsa.datastructures.list.DynamicArray;
+import dsa.datastructures.linkedlist.Linked_List;
 
 /**
- * The {@code QueueArray} class contains queue operation which uses array to store data.
+ * The {@code QueueLinkedList} class contains queue operation which uses linked list to store data.
  *
- * <p>{@code QueueArray} works on <b>primitive types</b> and <b>thread-safe</b>.</p>
+ * <p>{@code QueueLinkedList} is <b>thread-safe</b> and is implemented for <b>primitive types</b> only.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time complexity">
  * 	<tr>
@@ -30,13 +30,12 @@ import dsa.datastructures.list.DynamicArray;
  *
  * @author  Sathvik
  * @version 1.0
- * @see <a href="../list/DynamicArray.html">DynamicArray</a>
+ * @see <a href="../linkedlist/Linked_List.html">Linked_List</a>
  */
-public class QueueArray extends DynamicArray
+public class QueueLinkedList extends Linked_List
 {
 	/**
-	 * Constructs an array according to choice specified, with the initial
-	 * capacity of {@code 11} and capacity increment of {@code capacity += (capacity/2) + 1}.<br>
+	 * Constructs a {@code Linked_List} according to choice specified.
 	 *
 	 * @param choice <pre style="display: inline;">{@code if(choice.equals("char"))} then _char_ is initialized.
 	 *	 {@code if(choice.equals("byte"))} then _byte_ is initialized.
@@ -55,77 +54,18 @@ public class QueueArray extends DynamicArray
 	 *	 				!choice.equals("float") && 
 	 *	 				!choice.equals("double"))}</pre>
 	 */
-	public QueueArray(String choice)
+	public QueueLinkedList(String choice)
 	{
 		super(choice);
 	}
 	
 	/**
-	 * Constructs an array according to choice specified, with the specified 
-	 * initial capacity and capacity increment of {@code capacity += (capacity/2) + 1}.<br>
-	 *
-	 * @param choice <pre style="display: inline;">{@code if(choice.equals("char"))} then _char_ is initialized.
-	 *	 {@code if(choice.equals("byte"))} then _byte_ is initialized.
-	 *	 {@code if(choice.equals("short"))} then _short_ is initialized.
-	 *	 {@code if(choice.equals("int"))} then _int_ is initialized.
-	 *	 {@code if(choice.equals("long"))} then _long_ is initialized.
-	 *	 {@code if(choice.equals("float"))} then _float_ is initialized.
-	 *	 {@code if(choice.equals("double"))} then _double_ is initialized.</pre>
-	 * @param initialCapacity the initial capacity of the DynamicArray
-	 *
-	 * @throws IllegalArgumentException {@code if(initialCapacity < 0)}
-	 * @throws NullPointerException {@code if(choice == null)}
-	 * @throws IllegalArgumentException <pre style="display: inline;">{@code if(!choice.equals("char") &&
-	 *	 				!choice.equals("byte") && 
-	 *	 				!choice.equals("short") && 
-	 *	 				!choice.equals("int") && 
-	 *	 				!choice.equals("long") && 
-	 *	 				!choice.equals("float") && 
-	 *	 				!choice.equals("double"))}</pre>
-	 */
-	public QueueArray(int initialCapacity, String choice)
-	{
-		super(initialCapacity, choice);
-	}
-	
-	/**
-	 * Constructs an array according to choice specified, with the specified 
-	 * initial capacity and specified capacity increment of {@code capacity += capacityIncrement}.<br>
-	 *
-	 * @param choice <pre style="display: inline;">{@code if(choice.equals("char"))} then _char_ is initialized.
-	 *	 {@code if(choice.equals("byte"))} then _byte_ is initialized.
-	 *	 {@code if(choice.equals("short"))} then _short_ is initialized.
-	 *	 {@code if(choice.equals("int"))} then _int_ is initialized.
-	 *	 {@code if(choice.equals("long"))} then _long_ is initialized.
-	 *	 {@code if(choice.equals("float"))} then _float_ is initialized.
-	 *	 {@code if(choice.equals("double"))} then _double_ is initialized.</pre>
-	 * @param initialCapacity the initial capacity of the DynamicArray
-	 * @param capacityIncrement the amount by which the capacity is
-	 *                              increased when the DynamicArray overflows
-	 *
-	 * @throws IllegalArgumentException {@code if(initialCapacity < 0)}
-	 * @throws IllegalArgumentException {@code if(capacityIncrement < 1)} 
-	 * @throws NullPointerException {@code if(choice == null)}
-	 * @throws IllegalArgumentException <pre style="display: inline;">{@code if(!choice.equals("char") &&
-	 *	 				!choice.equals("byte") && 
-	 *	 				!choice.equals("short") && 
-	 *	 				!choice.equals("int") && 
-	 *	 				!choice.equals("long") && 
-	 *	 				!choice.equals("float") && 
-	 *	 				!choice.equals("double"))}</pre>
-	 */
-	public QueueArray(int initialCapacity, int capacityIncrement, String choice)
-	{
-		super(initialCapacity, capacityIncrement, choice);
-	}
-	
-	/**
-	 * adds an element to the collection.
+	 * Adds an element to the collection.
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
-	 * @param element the element to add
+	 * @param element the element to push
 	 */
 	public synchronized void enqueue(char element) 
 	{
@@ -133,12 +73,12 @@ public class QueueArray extends DynamicArray
 	}
 	
 	/**
-	 * adds an element to the collection.
+	 * Adds an element to the collection.
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
-	 * @param element the element to add
+	 * @param element the element to push
 	 */
 	public synchronized void enqueue(byte element) 
 	{
@@ -211,7 +151,7 @@ public class QueueArray extends DynamicArray
 	}
 	
 	/**
-	 * removes an element from the collection.
+	 * Removes the least recently added element.
 	 *
 	 * <p>This method is equivalent to {@link #removeAtIndex} where index is {@code 0}.
 	 *
