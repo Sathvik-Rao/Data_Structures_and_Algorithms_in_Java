@@ -23,6 +23,8 @@ dsa
 └───datastructures
     ├───heap
     |   └───Heap.java
+    ├───linkedlist
+    |   └───Linked_List.java
     ├───list
     |   └───DynamicArray.java
     ├───queue
