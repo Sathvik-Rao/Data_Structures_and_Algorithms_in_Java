@@ -1891,6 +1891,300 @@ public class DynamicArray
 	}
 	
 	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(char oldElement, char newElement) 
+	{
+		choiceCheck(0);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_char_[i] == oldElement)
+			{
+				flag = true;
+				_char_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(byte oldElement, byte newElement) 
+	{
+		choiceCheck(1);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_byte_[i] == oldElement)
+			{
+				flag = true;
+				_byte_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(short oldElement, short newElement) 
+	{
+		choiceCheck(2);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_short_[i] == oldElement)
+			{
+				flag = true;
+				_short_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(int oldElement, int newElement) 
+	{
+		choiceCheck(3);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_int_[i] == oldElement)
+			{
+				flag = true;
+				_int_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(long oldElement, long newElement) 
+	{
+		choiceCheck(4);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_long_[i] == oldElement)
+			{
+				flag = true;
+				_long_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(float oldElement, float newElement) 
+	{
+		choiceCheck(5);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_float_[i] == oldElement)
+			{
+				flag = true;
+				_float_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 *
+	 * @param oldElement the old element
+	 * @param newElement the new element
+	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)} 
+	 * @return {@code true} if atleast one {@code oldElement} element is replaces with {@code newElement}
+	 */
+	public synchronized boolean replace(double oldElement, double newElement) 
+	{
+		choiceCheck(6);
+		if(isEmpty())
+		{
+			return false;
+		}
+		boolean flag = false;
+		for(int i = 0; i < end; i++)
+		{
+			if(_double_[i] == oldElement)
+			{
+				flag = true;
+				_double_[i] = newElement;
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(char newElement, int index) 
+	{
+		choiceCheck(0);
+		rangeCheck0(index);
+		_char_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(byte newElement, int index) 
+	{
+		choiceCheck(1);
+		rangeCheck0(index);
+		_byte_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(short newElement, int index) 
+	{
+		choiceCheck(2);
+		rangeCheck0(index);
+		_short_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(int newElement, int index) 
+	{
+		choiceCheck(3);
+		rangeCheck0(index);
+		_int_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(long newElement, int index) 
+	{
+		choiceCheck(4);
+		rangeCheck0(index);
+		_long_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(float newElement, int index) 
+	{
+		choiceCheck(5);
+		rangeCheck0(index);
+		_float_[index] = newElement;
+	}
+	
+	/**
+	 * Replace value at {@code index}, with the {@code newElement}.
+	 *
+	 * @param newElement the new element
+	 * @param index index at which element is to be placed
+	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
+	 * @throws ArrayIndexOutOfBoundsException {@code if(index >= end || index < 0)}
+	 */
+	public synchronized void replaceAt(double newElement, int index) 
+	{
+		choiceCheck(6);
+		rangeCheck0(index);
+		_double_[index] = newElement;
+	}
+	
+	/**
 	 * Removes all of the elements from this DynamicArray.  The DynamicArray will
 	 * be empty after this call returns (unless it throws an exception).
 	 */	
