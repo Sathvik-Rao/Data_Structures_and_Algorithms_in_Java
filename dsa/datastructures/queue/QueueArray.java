@@ -124,6 +124,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(char element) 
@@ -136,6 +137,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(byte element) 
@@ -148,6 +150,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(short element) 
@@ -160,6 +163,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(int element) 
@@ -172,6 +176,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(long element) 
@@ -184,6 +189,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(float element) 
@@ -196,6 +202,7 @@ public class QueueArray extends DynamicArray
 	 *
 	 * <p>This method is equivalent to {@link #add}.</p>
 	 *
+	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
 	 * @param element the element to add
 	 */
 	public synchronized void enqueue(double element) 
