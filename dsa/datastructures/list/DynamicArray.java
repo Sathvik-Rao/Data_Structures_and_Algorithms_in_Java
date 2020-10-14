@@ -17,7 +17,7 @@ import java.util.Arrays;
  * capacity of a DynamicArray before inserting a large number of
  * components; this reduces the amount of incremental reallocation.</p>
  *
- * <p>{@code DynamicArray} works on <b>primitive types</b> and <b>thread-safe</b>.</p>
+ * <p>{@code DynamicArray} is <b>thread-safe</b> and is implemented for <b>primitive types</b> only.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time complexity">
  * 	<tr>
@@ -449,6 +449,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(char).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */
 	public synchronized boolean add(char element)
@@ -463,6 +464,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(byte).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */	
 	public synchronized boolean add(byte element)
@@ -477,6 +479,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(short).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */	
 	public synchronized boolean add(short element)
@@ -491,6 +494,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(int).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */	
 	public synchronized boolean add(int element)
@@ -505,6 +509,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(long).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */		
 	public synchronized boolean add(long element)
@@ -519,6 +524,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(float).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */		
 	public synchronized boolean add(float element)
@@ -533,6 +539,7 @@ public class DynamicArray
 	 * Appends the specified element to the end of this DynamicArray(double).
 	 *
 	 * @param element element to be appended to this DynamicArray
+	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
 	 * @return {@code true} if successfully appended
 	 */		
 	public synchronized boolean add(double element)
@@ -1549,7 +1556,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[0] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */
@@ -1568,7 +1575,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[1] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1587,7 +1594,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[2] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1606,7 +1613,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[3] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1625,7 +1632,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[4] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1644,7 +1651,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[5] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1663,7 +1670,7 @@ public class DynamicArray
 	 * Algorithm used to search elements is linear search.
 	 *
 	 * @param element element whose presence in this DynamicArray is to be tested
-	 * @return {@code true} if this DynamicArray contains the specified element else {@code false}
+	 * @return {@code true} if this DynamicArray contains the specified element; else {@code false}
 	 * @throws IllegalArgumentException {@code if(choice[6] != ONE)}
 	 * @see <a href="../../algorithms/search/LinearSearch.html">LinearSearch</a>
 	 */	
@@ -1891,7 +1898,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(char).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -1918,7 +1925,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(byte).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -1945,7 +1952,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(short).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -1972,7 +1979,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(int).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -1999,7 +2006,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(long).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -2026,7 +2033,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(float).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -2053,7 +2060,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace all the {@code oldElement}, with the {@code newElement}.
+	 * Replace all the {@code oldElement}, with the {@code newElement} in this DynamicArray(double).
 	 *
 	 * @param oldElement the old element
 	 * @param newElement the new element
@@ -2080,7 +2087,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(char).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2095,7 +2102,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(byte).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2110,7 +2117,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(short).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2125,7 +2132,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(int).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2140,7 +2147,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(long).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2155,7 +2162,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(float).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2170,7 +2177,7 @@ public class DynamicArray
 	}
 	
 	/**
-	 * Replace value at {@code index}, with the {@code newElement}.
+	 * Replace value at {@code index}, with the {@code newElement} in this DynamicArray(double).
 	 *
 	 * @param newElement the new element
 	 * @param index index at which element is to be placed
@@ -2197,7 +2204,7 @@ public class DynamicArray
 	/**
 	 * Returns the number of components in this DynamicArray.
 	 *
-	 * @return  the number of components in this DynamicArray
+	 * @return the number of components in this DynamicArray
 	 */	
 	public synchronized int size() 
 	{
