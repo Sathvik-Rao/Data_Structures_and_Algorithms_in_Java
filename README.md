@@ -28,9 +28,11 @@ dsa
     ├───list
     |   └───DynamicArray.java
     ├───queue
-    |   └───QueueArray.java
+    |   ├───QueueArray.java
+    |   └───QueueLinkedList.java
     └───stack
-        └───StackArray.java
+        ├───StackArray.java
+        └───StackLinkedList.java
 ```
 
 It is still under development and takes time.
