@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections; 
 /**
  * This class contains sort methods which are implemented using Bucket Sort for decimal numbers 
- * ranging from (-1.0,1.0).
+ * ranging from (-1.0,1.0) i.e., -0.9 to +0.9.
  *
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.</p>
  *
  * <p><b>Bucket sort</b> is mainly useful when input is uniformly distributed over a range.
  * Where <b>k</b> is the no of buckets.</p>
- * 
- * <p><b>It accepts values out of range(-1.0,1.0), but the result is ambiguous</b>.</p>
  *
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity
  *																				 where k is no of buckets.">
@@ -49,6 +47,7 @@ public class BucketSort
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
 	 */
 	public static void sort(float[] a, char c)
 	{
@@ -63,30 +62,34 @@ public class BucketSort
 			if(c == 'a' || c == 'A')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Float>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Float>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Float>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i]); 
 				} 
 				int index = 0; 
-				for (int i = 0; i < 18; i++)
+				for (int i = 0; i < 19; i++)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -99,30 +102,34 @@ public class BucketSort
 			else if(c == 'd' || c == 'D')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Float>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Float>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Float>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i], Collections.reverseOrder()); 
 				} 
 				int index = 0; 
-				for (int i = 17; i > -1; i--)
+				for (int i = 18; i > -1; i--)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -153,6 +160,7 @@ public class BucketSort
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
 	 */
 	public static void sort(float[] a, int fromIndex, int toIndex, char c)
 	{
@@ -169,66 +177,74 @@ public class BucketSort
 				if(c == 'a' || c == 'A')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Float>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Float>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Float>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
-					}
-					for (int i = 0; i < 18; i++) 
+					} 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i]); 
 					} 
 					int index = fromIndex; 
-					for (int i = 0; i < 18; i++)
+					for (int i = 0; i < 19; i++)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
-						{
+						{ 
 							a[index++] = buckets[i].get(j); 
 						} 
-					} 
+					} 	
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Float>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Float>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Float>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
 					} 
-					for (int i = 0; i < 18; i++) 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i], Collections.reverseOrder()); 
 					} 
 					int index = fromIndex; 
-					for (int i = 17; i > -1; i--)
+					for (int i = 18; i > -1; i--)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
 						{ 
@@ -267,6 +283,7 @@ public class BucketSort
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
 	 */
 	public static void sort(double[] a, char c)
 	{
@@ -281,30 +298,34 @@ public class BucketSort
 			if(c == 'a' || c == 'A')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Double>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Double>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Double>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i]); 
 				} 
 				int index = 0; 
-				for (int i = 0; i < 18; i++)
+				for (int i = 0; i < 19; i++)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -317,30 +338,34 @@ public class BucketSort
 			else if(c == 'd' || c == 'D')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Double>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Double>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Double>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i], Collections.reverseOrder()); 
 				} 
 				int index = 0; 
-				for (int i = 17; i > -1; i--)
+				for (int i = 18; i > -1; i--)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -371,6 +396,7 @@ public class BucketSort
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
 	 */
 	public static void sort(double[] a, int fromIndex, int toIndex, char c)
 	{
@@ -387,66 +413,74 @@ public class BucketSort
 				if(c == 'a' || c == 'A')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Double>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Double>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Double>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
-					}
-					for (int i = 0; i < 18; i++) 
+					} 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i]); 
 					} 
 					int index = fromIndex; 
-					for (int i = 0; i < 18; i++)
+					for (int i = 0; i < 19; i++)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
-						{
+						{ 
 							a[index++] = buckets[i].get(j); 
 						} 
-					} 
+					} 	
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Double>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Double>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Double>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
 					} 
-					for (int i = 0; i < 18; i++) 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i], Collections.reverseOrder()); 
 					} 
 					int index = fromIndex; 
-					for (int i = 17; i > -1; i--)
+					for (int i = 18; i > -1; i--)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
 						{ 
@@ -485,6 +519,8 @@ public class BucketSort
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
+	 * @throws NullPointerException {@code if(a[i] == null)} where i = start to end
 	 */
 	public static void sort(Float[] a, char c)
 	{
@@ -499,30 +535,34 @@ public class BucketSort
 			if(c == 'a' || c == 'A')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Float>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Float>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Float>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i]); 
 				} 
 				int index = 0; 
-				for (int i = 0; i < 18; i++)
+				for (int i = 0; i < 19; i++)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -535,30 +575,34 @@ public class BucketSort
 			else if(c == 'd' || c == 'D')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Float>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Float>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Float>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					} 
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i], Collections.reverseOrder()); 
 				} 
 				int index = 0; 
-				for (int i = 17; i > -1; i--)
+				for (int i = 18; i > -1; i--)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -589,6 +633,8 @@ public class BucketSort
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
+	 * @throws NullPointerException {@code if(a[i] == null)} where i = start to end
 	 */
 	public static void sort(Float[] a, int fromIndex, int toIndex, char c)
 	{
@@ -605,66 +651,74 @@ public class BucketSort
 				if(c == 'a' || c == 'A')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Float>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Float>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Float>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
-					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+					{  
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
-					}
-					for (int i = 0; i < 18; i++) 
+					} 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i]); 
 					} 
 					int index = fromIndex; 
-					for (int i = 0; i < 18; i++)
+					for (int i = 0; i < 19; i++)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
-						{
+						{ 
 							a[index++] = buckets[i].get(j); 
 						} 
-					} 
+					} 	
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Float>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Float>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Float>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
 					} 
-					for (int i = 0; i < 18; i++) 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i], Collections.reverseOrder()); 
 					} 
 					int index = fromIndex; 
-					for (int i = 17; i > -1; i--)
+					for (int i = 18; i > -1; i--)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
 						{ 
@@ -703,6 +757,8 @@ public class BucketSort
 	 *			{@code if(c == 'd' || c == 'D')} then sort <b>a</b> in descending order
 	 *
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
+	 * @throws NullPointerException {@code if(a[i] == null)} where i = start to end
 	 */
 	public static void sort(Double[] a, char c)
 	{
@@ -717,30 +773,34 @@ public class BucketSort
 			if(c == 'a' || c == 'A')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Double>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Double>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Double>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i]); 
 				} 
 				int index = 0; 
-				for (int i = 0; i < 18; i++)
+				for (int i = 0; i < 19; i++)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -753,30 +813,34 @@ public class BucketSort
 			else if(c == 'd' || c == 'D')
 			{
 				@SuppressWarnings("unchecked") 
-				ArrayList<Double>[] buckets = new ArrayList[18];
-				byte[] ref = {-1,7,6,5,4,3,2,1,0};
-				for (int i = 0; i < 18; i++) 
+				ArrayList<Double>[] buckets = new ArrayList[19];
+				byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+				for (int i = 0; i < 19; i++) 
 				{ 
 					buckets[i] = new ArrayList<Double>(0); 
 				} 
 				for (int i = 0; i < a.length; i++) 
 				{ 
-					int loc = String.valueOf(a[i]).charAt(2) - 40;
-					if(loc != 6)
+					if(a[i] <= -1.0 || a[i] >= 1.0)
+					{
+						throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+					}
+					int loc = String.valueOf(a[i]).charAt(2) - 39;
+					if(loc != 7)
 					{
 						buckets[loc].add(a[i]);
 					}
 					else
-					{	
+					{
 						buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 					}
 				} 
-				for (int i = 0; i < 18; i++) 
+				for (int i = 0; i < 19; i++) 
 				{ 
 					Collections.sort(buckets[i], Collections.reverseOrder()); 
 				} 
 				int index = 0; 
-				for (int i = 17; i > -1; i--)
+				for (int i = 18; i > -1; i--)
 				{ 
 					for (int j = 0; j < buckets[i].size(); j++) 
 					{ 
@@ -807,6 +871,8 @@ public class BucketSort
 	 * @throws IllegalArgumentException {@code if((c != 'a' || c != 'A') && (c != 'd' || c != 'D'))}
 	 * @throws IllegalArgumentException {@code if(fromIndex > toIndex)}
 	 * @throws ArrayIndexOutOfBoundsException {@code if(fromIndex < 0 || toIndex > a.length)}
+	 * @throws RuntimeException {@code if(a[i] <= -1.0 || a[i] >= 1.0)} where i = start to end
+	 * @throws NullPointerException {@code if(a[i] == null)} where i = start to end
 	 */
 	public static void sort(Double[] a, int fromIndex, int toIndex, char c)
 	{
@@ -823,66 +889,74 @@ public class BucketSort
 				if(c == 'a' || c == 'A')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Double>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Double>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Double>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
-					}
-					for (int i = 0; i < 18; i++) 
+					} 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i]); 
 					} 
 					int index = fromIndex; 
-					for (int i = 0; i < 18; i++)
+					for (int i = 0; i < 19; i++)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
-						{
+						{ 
 							a[index++] = buckets[i].get(j); 
 						} 
-					} 
+					} 	
 				}
 				
 				// Descending Order
 				else if(c == 'd' || c == 'D')
 				{
 					@SuppressWarnings("unchecked") 
-					ArrayList<Double>[] buckets = new ArrayList[18];
-					byte[] ref = {-1,7,6,5,4,3,2,1,0};
-					for (int i = 0; i < 18; i++) 
+					ArrayList<Double>[] buckets = new ArrayList[19];
+					byte[] ref = {9,8,7,6,5,4,3,2,1,0};
+					for (int i = 0; i < 19; i++) 
 					{ 
 						buckets[i] = new ArrayList<Double>(0); 
 					} 
 					for (int i = fromIndex; i < toIndex; i++) 
 					{ 
-						int loc = String.valueOf(a[i]).charAt(2) - 40;
-						if(loc != 6)
+						if(a[i] <= -1.0 || a[i] >= 1.0)
+						{
+							throw new RuntimeException("Out of range(-1.0,1.0): " + a[i]);
+						}
+						int loc = String.valueOf(a[i]).charAt(2) - 39;
+						if(loc != 7)
 						{
 							buckets[loc].add(a[i]);
 						}
 						else
-						{	
+						{
 							buckets[ref[String.valueOf(a[i]).charAt(3) - 48]].add(a[i]);
 						}
 					} 
-					for (int i = 0; i < 18; i++) 
+					for (int i = 0; i < 19; i++) 
 					{ 
 						Collections.sort(buckets[i], Collections.reverseOrder()); 
 					} 
 					int index = fromIndex; 
-					for (int i = 17; i > -1; i--)
+					for (int i = 18; i > -1; i--)
 					{ 
 						for (int j = 0; j < buckets[i].size(); j++) 
 						{ 
