@@ -467,6 +467,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -513,6 +514,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -559,6 +561,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -605,6 +608,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -651,6 +655,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -697,6 +702,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
@@ -711,7 +717,7 @@ public class Linked_List
 	 */
 	public synchronized boolean add(long index, double element)
 	{
-		choiceCheck(5);
+		choiceCheck(6);
 		rangeCheck(index);
 		Node_Double temp = new Node_Double();
 		temp.data = element;
@@ -743,6 +749,7 @@ public class Linked_List
 			pointer.next = temp;
 			temp.next.prev = temp;
 		}
+		size++;
 		return true;
 	}
 	
