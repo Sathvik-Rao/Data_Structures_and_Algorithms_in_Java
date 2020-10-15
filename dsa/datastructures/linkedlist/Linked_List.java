@@ -789,12 +789,14 @@ public class Linked_List
 			{
 				o = first_char.data;
 				first_char = first_char.next;
+				first_char.prev.next = null;
 				first_char.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_char.data;
 				last_char = last_char.prev;
+				last_char.next.prev = null;
 				last_char.next = null;
 			}
 			else
@@ -807,6 +809,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -821,12 +825,14 @@ public class Linked_List
 			{
 				o = first_byte.data;
 				first_byte = first_byte.next;
+				first_byte.prev.next = null;
 				first_byte.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_byte.data;
 				last_byte = last_byte.prev;
+				last_byte.next.prev = null;
 				last_byte.next = null;
 			}
 			else
@@ -839,6 +845,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -853,12 +861,14 @@ public class Linked_List
 			{
 				o = first_short.data;
 				first_short = first_short.next;
+				first_short.prev.next = null;
 				first_short.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_short.data;
 				last_short = last_short.prev;
+				last_short.next.prev = null;
 				last_short.next = null;
 			}
 			else
@@ -871,6 +881,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -885,12 +897,14 @@ public class Linked_List
 			{
 				o = first_int.data;
 				first_int = first_int.next;
+				first_int.prev.next = null;
 				first_int.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_int.data;
 				last_int = last_int.prev;
+				last_int.next.prev = null;
 				last_int.next = null;
 			}
 			else
@@ -903,6 +917,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -917,12 +933,14 @@ public class Linked_List
 			{
 				o = first_long.data;
 				first_long = first_long.next;
+				first_long.prev.next = null;
 				first_long.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_long.data;
 				last_long = last_long.prev;
+				last_long.next.prev = null;
 				last_long.next = null;
 			}
 			else
@@ -935,6 +953,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -949,12 +969,14 @@ public class Linked_List
 			{
 				o = first_float.data;
 				first_float = first_float.next;
+				first_float.prev.next = null;
 				first_float.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_float.data;
 				last_float = last_float.prev;
+				last_float.next.prev = null;
 				last_float.next = null;
 			}
 			else
@@ -967,6 +989,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -981,12 +1005,14 @@ public class Linked_List
 			{
 				o = first_double.data;
 				first_double = first_double.next;
+				first_double.prev.next = null;
 				first_double.prev = null;
 			}
 			else if(index == (size-1))
 			{
 				o = last_double.data;
 				last_double = last_double.prev;
+				last_double.next.prev = null;
 				last_double.next = null;
 			}
 			else
@@ -999,6 +1025,8 @@ public class Linked_List
 				o = pointer.data;
 				pointer.prev.next = pointer.next;
 				pointer.next.prev = pointer.prev;
+				pointer.next = null;
+				pointer.prev = null;
 			}
 			size--;
 		}
@@ -1725,12 +1753,14 @@ public class Linked_List
 					if(pointer == first_char)
 					{
 						first_char = first_char.next;
+						first_char.prev.next = null;
 						first_char.prev = null;
 						return true;
 					}
 					else if(pointer == last_char)
 					{
 						last_char = last_char.prev;
+						last_char.next.prev = null;
 						last_char.next = null;
 						return true;
 					}
@@ -1738,6 +1768,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -1780,12 +1812,14 @@ public class Linked_List
 					if(pointer == first_byte)
 					{
 						first_byte = first_byte.next;
+						first_byte.prev.next = null;
 						first_byte.prev = null;
 						return true;
 					}
 					else if(pointer == last_byte)
 					{
 						last_byte = last_byte.prev;
+						last_byte.next.prev = null;
 						last_byte.next = null;
 						return true;
 					}
@@ -1793,6 +1827,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -1835,12 +1871,14 @@ public class Linked_List
 					if(pointer == first_short)
 					{
 						first_short = first_short.next;
+						first_short.prev.next = null;
 						first_short.prev = null;
 						return true;
 					}
 					else if(pointer == last_short)
 					{
 						last_short = last_short.prev;
+						last_short.next.prev = null;
 						last_short.next = null;
 						return true;
 					}
@@ -1848,6 +1886,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -1890,12 +1930,14 @@ public class Linked_List
 					if(pointer == first_int)
 					{
 						first_int = first_int.next;
+						first_int.prev.next = null;
 						first_int.prev = null;
 						return true;
 					}
 					else if(pointer == last_int)
 					{
 						last_int = last_int.prev;
+						last_int.next.prev = null;
 						last_int.next = null;
 						return true;
 					}
@@ -1903,6 +1945,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -1945,12 +1989,14 @@ public class Linked_List
 					if(pointer == first_long)
 					{
 						first_long = first_long.next;
+						first_long.prev.next = null;
 						first_long.prev = null;
 						return true;
 					}
 					else if(pointer == last_long)
 					{
 						last_long = last_long.prev;
+						last_long.next.prev = null;
 						last_long.next = null;
 						return true;
 					}
@@ -1958,6 +2004,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -2000,12 +2048,14 @@ public class Linked_List
 					if(pointer == first_float)
 					{
 						first_float = first_float.next;
+						first_float.prev.next = null;
 						first_float.prev = null;
 						return true;
 					}
 					else if(pointer == last_float)
 					{
 						last_float = last_float.prev;
+						last_float.next.prev = null;
 						last_float.next = null;
 						return true;
 					}
@@ -2013,6 +2063,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
@@ -2055,12 +2107,14 @@ public class Linked_List
 					if(pointer == first_double)
 					{
 						first_double = first_double.next;
+						first_double.prev.next = null;
 						first_double.prev = null;
 						return true;
 					}
 					else if(pointer == last_double)
 					{
 						last_double = last_double.prev;
+						last_double.next.prev = null;
 						last_double.next = null;
 						return true;
 					}
@@ -2068,6 +2122,8 @@ public class Linked_List
 					{
 						pointer.prev.next = pointer.next;
 						pointer.next.prev = pointer.prev;
+						pointer.next = null;
+						pointer.prev = null;
 						return true;
 					}
 				}
