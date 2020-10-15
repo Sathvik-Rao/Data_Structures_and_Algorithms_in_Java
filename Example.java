@@ -26,8 +26,6 @@ class Example
 		}
 		
 		
-		
-		
 		System.out.println("\n++++++++++++++ ALGORITHMS ++++++++++++++");
 		
 		System.out.println("============== Maximum Subarray Sum ==============");
@@ -125,8 +123,6 @@ class Example
 		BucketSort.sort(d,'a');
 		end = System.currentTimeMillis();
 		System.out.println("BucketSort = " + (end-start) + "ms");
-		
-		
 		
 		
 		System.out.println("\n++++++++++++++ DATA STRUCTURES ++++++++++++++");
