@@ -6,33 +6,33 @@
 dsa
 ├───algorithms
 │   ├───problems
-|   |   └───MaximumSubArraySum.java
+|   |   └───MaximumSubArraySum.java     (primitive types)
 │   ├───sort
-|   |   ├───BubbleSort.java
-|   |   ├───BucketSort.java
-|   |   ├───CountingSort.java
-|   |   ├───HeapSort.java
-|   |   ├───InsertionSort.java
-|   |   ├───MergeSort.java
-|   |   ├───QuickSort.java
-|   |   ├───RadixSort.java
-|   |   ├───RandomizedQuickSort.java
-|   |   └───SelectionSort.java
+|   |   ├───BubbleSort.java             (primitive types + Object type)
+|   |   ├───BucketSort.java             (float + Float + double + Double)
+|   |   ├───CountingSort.java           (char + byte + short + int)
+|   |   ├───HeapSort.java               (primitive types + Object type)
+|   |   ├───InsertionSort.java          (primitive types + Object type)
+|   |   ├───MergeSort.java              (primitive types + Object type)
+|   |   ├───QuickSort.java              (primitive types + Object type)
+|   |   ├───RadixSort.java              (char + byte + short + int + long)
+|   |   ├───RandomizedQuickSort.java    (primitive types + Object type)
+|   |   └───SelectionSort.java          (primitive types + Object type)
 |   └───search
-|       └───LinearSearch.java
+|       └───LinearSearch.java           (primitive types + Object type)
 └───datastructures
     ├───heap
-    |   └───Heap.java
+    |   └───Heap.java                   (Object type)
     ├───linkedlist
-    |   └───Linked_List.java
+    |   └───Linked_List.java            (primitive types)
     ├───list
-    |   └───DynamicArray.java
+    |   └───DynamicArray.java           (primitive types)
     ├───queue
-    |   ├───QueueArray.java
-    |   └───QueueLinkedList.java
+    |   ├───QueueArray.java             (primitive types)
+    |   └───QueueLinkedList.java        (primitive types)
     └───stack
-        ├───StackArray.java
-        └───StackLinkedList.java
+        ├───StackArray.java             (primitive types)
+        └───StackLinkedList.java        (primitive types)
 ```
 
 It is still under development and takes time.
