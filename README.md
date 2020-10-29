@@ -35,7 +35,4 @@ dsa
         └───StackLinkedList.java        (primitive types)
 ```
 
-It is still under development and takes time.
-
-
 ###### Start Date - 30/09/2020
