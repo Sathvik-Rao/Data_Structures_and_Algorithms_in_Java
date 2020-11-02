@@ -83,6 +83,15 @@ class Example
 			a[i] = b[i];
 		}
 		start = System.currentTimeMillis();
+		MergeSort_Multiprocessing.sort(a,'a');
+		end = System.currentTimeMillis();
+		System.out.println("MergeSort_Multiprocessing = " + (end-start) + "ms");
+		
+		for(int i=0;i<size;i++)
+		{
+			a[i] = b[i];
+		}
+		start = System.currentTimeMillis();
 		QuickSort.sort(a,'a');
 		end = System.currentTimeMillis();
 		System.out.println("QuickSort = " + (end-start) + "ms");
