@@ -7,7 +7,7 @@ package dsa.algorithms.sort;
  * <p>The methods in this class all throw a {@code NullPointerException},
  * if the specified array reference is null, except where noted.</p>
  *
- * <p><b>Mergesort</b> is used when we want a guaranteed running time of <b>O(n logn)</b>
+ * <p><b>Mergesort</b> is used when we want a guaranteed running time of <b>O(n logn)</b>.
  * It is also good to use when memory <b>space</b> is not limited.</p>
  * 
  * <table style = "border: 1px solid black; border-collapse: collapse;" summary="Time and Space complexity">
