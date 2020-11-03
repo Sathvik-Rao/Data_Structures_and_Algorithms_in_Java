@@ -1,5 +1,7 @@
 # Data Structures and Algorithms in Java
 
+Install -> https://github.com/Sathvik-Rao/Data_Structures_and_Algorithms_in_Java.git
+
 ###### package structure
 
 ```
