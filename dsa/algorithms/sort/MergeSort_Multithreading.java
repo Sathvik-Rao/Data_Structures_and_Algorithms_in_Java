@@ -40,7 +40,7 @@ public class MergeSort_Multithreading
 	private final static int processorsCount = Runtime.getRuntime().availableProcessors();
 	
 	//use Multithreading only if size of array is greater than threshold
-	private final static int threshold = 100 + processorsCount;
+	private final static int threshold = 1000 + processorsCount;
 	
 	private static CyclicBarrier gate = null;
 	
