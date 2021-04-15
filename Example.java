@@ -78,6 +78,14 @@ class Example
 		end = System.currentTimeMillis();
 		System.out.println("MergeSort = " + (end-start) + "ms");
 		
+		for(int i=0;i<size;i++)
+		{
+			a[i] = b[i];
+		}
+		start = System.currentTimeMillis();
+		MergeSort_Multithreading.sort(a,'a');
+		end = System.currentTimeMillis();
+		System.out.println("MergeSort_Multithreading = " + (end-start) + "ms");
 		
 		for(int i=0;i<size;i++)
 		{
