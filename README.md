@@ -16,6 +16,7 @@ dsa
 |   |   ├───HeapSort.java                   (primitive types + Object type)
 |   |   ├───InsertionSort.java              (primitive types + Object type)
 |   |   ├───MergeSort.java                  (primitive types + Object type)
+|   |   ├───MergeSort_Multithreading.java   (primitive types + Object type)
 |   |   ├───QuickSort.java                  (primitive types + Object type)
 |   |   ├───RadixSort.java                  (char + byte + short + int + long)
 |   |   ├───RandomizedQuickSort.java        (primitive types + Object type)
