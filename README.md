@@ -1,6 +1,13 @@
 # Data Structures and Algorithms in Java
 
-Install -> https://github.com/Sathvik-Rao/Data_Structures_and_Algorithms_in_Java/archive/master.zip
+This repository contains implementations of various data structures and algorithms in Java, focusing on using primitive types for efficiency.
+
+### Overview
+The project aims to provide efficient implementations of fundamental data structures and algorithms using primitive types in Java. By utilizing primitive types, we aim to maximize performance and minimize memory overhead.
+
+
+![Screenshot 2024-04-11 220948](https://github.com/Sathvik-Rao/Data_Structures_and_Algorithms_in_Java/assets/36164509/12453e5a-b7db-4e4c-94e2-42a019ae59aa)
+
 
 ###### package structure
 
