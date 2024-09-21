@@ -5,6 +5,18 @@ This repository contains implementations of various data structures and algorith
 ### Overview
 The project aims to provide efficient implementations of fundamental data structures and algorithms using primitive types in Java. By utilizing primitive types, we aim to maximize performance and minimize memory overhead.
 
+```
+DynamicArray da = new DynamicArray("byte"); // primitive type  
+da.add((byte)4);
+...
+
+StackArray sa = new StackArray("char");  // primitive type  
+sa.push('a');
+...
+
+QuickSort.sort(arr,'a');  // primitive type  
+...
+```
 
 ![Screenshot 2024-04-11 220948](https://github.com/Sathvik-Rao/Data_Structures_and_Algorithms_in_Java/assets/36164509/12453e5a-b7db-4e4c-94e2-42a019ae59aa)
 
